@@ -1,0 +1,110 @@
+update ScreenOperations set SQLQuery = 'SELECT
+    (SELECT COUNT(*) 
+     FROM [PROD].[Registration]
+     WHERE SuperId = ''@SuperId'' AND IsActive = 1
+    ) AS TOTALREGISTRATIONS,
+
+    SUM(CASE WHEN InStatus = ''P''  THEN 1 ELSE 0 END) AS PRESENT,
+    SUM(CASE WHEN InStatus = ''L''  THEN 1 ELSE 0 END) AS LATE,
+    SUM(CASE WHEN InStatus = ''A''  THEN 1 ELSE 0 END) AS ABSENT,
+    SUM(CASE WHEN InStatus = ''LV'' THEN 1 ELSE 0 END) AS LEAVE
+FROM PROD.V_Attendance
+WHERE SuperId = ''@SuperId''
+  AND DateOfTransaction = ''@SelectedDate'';' Where Id = 87
+-----
+----ID = 63
+----
+
+Update ScreenOperations set SQLQuery = 
+'SELECT RegId,SuperId,Badge,UserName,DateOfBirth,Designation,CardId,Mobile,RFID,Gender,IsActive,DateOfJoining,
+DateOfRegistration,MobileAccess,EmpPortalAccess,BranchId,BranchName,BranchCode,
+DepartmentId,DepartmentName,DepartmentCode,ShiftId,ShiftName,EmailId
+FROM [PROD].[VW_Registration]
+WHERE SuperId = @SuperId
+  AND IsActive = 1
+  AND DepartmentId = @DepartmentId
+  AND RegId = @RegId
+ORDER BY RegId DESC;' Where id = 63
+
+-------------------------
+---- ID= 16
+-------------------------
+Update ScreenOperations set SQLQuery = 
+'SELECT RegId,SuperId,Badge,UserName,DateOfBirth,Designation,CardId,Mobile,RFID,DateOfJoining,  DateOfRegistration,Gender,BranchId,BranchName,BranchCode,  DepartmentId,DepartmentName,DepartmentCode,ShiftId,ShiftName  FROM [PROD].[VW_Registration]  WHERE SuperId = @SuperId    AND IsActive = 1  ORDER BY RegId DESC;' Where Id = 16
+
+-------------------------
+---- ID= 56
+-------------------------
+
+Update ScreenOperations set SQLQuery =
+'UPDATE [PROD].[Department] SET Name = ''@name'' ,Code = ''@code'' where id =  @departmentid' Where Id = 56
+-------------------------
+---- ID= 58
+-------------------------
+
+Update ScreenOperations set SQLQuery = 
+'SELECT d.Id AS DepartmentId,d.SuperId,d.Name,d.Code,COUNT(r.Id) AS EmpCount,d.IsActive
+FROM [PROD].[Department] d
+LEFT JOIN [PROD].[EmpDept] ed ON ed.DeptId = d.Id AND ed.IsActive = 1
+LEFT JOIN [PROD].[Registration] r ON r.Id = ed.RegId AND r.IsActive = 1
+WHERE d.SuperId = @SuperId
+GROUP BY d.Id,d.SuperId,d.Name,d.Code,d.IsActive;' Where Id = 58
+
+-----------------------------------
+--------Update Branch - 101
+-----------------------------------
+Update ScreenOperations set SQLQuery =
+'UPDATE [PROD].[Branches]   SET name = ''@name'',code = ''@code'',UpdatedBy = @createdby,UpdatedOn = DATEADD(MINUTE, 330, GETUTCDATE())   WHERE id = @branchid' Where id = 101
+
+--------------------------------------
+------------Update holiday 53
+-------------------------------------
+Update ScreenOperations set SQLQuery =
+  'UPDATE [PROD].[Holidays]  SET HolidayDt = ''@holidaydt'',UpdatedBy = @createdby,
+  UpdatedOn =  DATEADD(MINUTE, 330, GETUTCDATE()),Reason =''@reason'',Optional = ''@optional''
+   WHERE Id = @holidayid;' Where Id = 53
+
+----------------------------
+------------Dashboard Attendance 116
+--------------------------------
+
+Update ScreenOperations set SQLQuery =
+'DECLARE @CurrentDate DATE = ''@currentdates'';
+DECLARE @TotalRegistrations INT;
+SELECT @TotalRegistrations = COUNT(*) FROM [PROD].[Registration]
+WHERE SuperId = @SuperId AND IsActive = 1;
+-- Generate last 7 days and aggregate attendance
+SELECT
+    @TotalRegistrations AS TOTALREGISTRATIONS,
+    SUM(CASE WHEN A.InStatus = ''P''  THEN 1 ELSE 0 END) AS PRESENT,
+    SUM(CASE WHEN A.InStatus = ''L''  THEN 1 ELSE 0 END) AS LATE,
+    SUM(CASE WHEN A.InStatus = ''A''  THEN 1 ELSE 0 END) AS ABSENT,
+    SUM(CASE WHEN A.InStatus = ''LV'' THEN 1 ELSE 0 END) AS LEAVE,
+    D.TargetDate AS [Date]
+FROM (
+    SELECT DATEADD(DAY, -V.DayOffset, @CurrentDate) AS TargetDate
+    FROM (VALUES (0),(1),(2),(3),(4),(5),(6)) V(DayOffset)
+) D
+LEFT JOIN PROD.V_Attendance A ON A.SuperId = @SuperId
+   AND A.DateOfTransaction = D.TargetDate
+GROUP BY D.TargetDate
+ORDER BY D.TargetDate DESC;' Where Id = 116
+
+-----------------------
+----- ID 86
+--------------------------
+update ScreenOperations set SQLQuery =
+    'SELECT UserName, Department, CAST(InTime AS VARCHAR) AS InTime, Badge, FormatInTime, Mobile, MachineId, DateOfTransaction,
+    FormatOutTime, InStatus, RegId, Duration, InStCode, OutStCode, WorkTime
+	FROM prod.V_Attendance    
+    WHERE SuperId = @SuperId AND  DateOfTransaction = ''@SelectedDate''  AND InStatus = ''@InStatus'';' Where Id = 86
+
+--------------------------------
+-----------------60
+--------------------------------
+Update ScreenOperations set SQLQuery = 'DECLARE @RegId INT,@ReturnMessage NVARCHAR(500),@ReturnStatus NVARCHAR(10);
+EXEC [PROD].[Sp_EmployeeRegistration] @EmployeeJson = ''@InputEmployeeJson'',@RegOutId = @RegId OUTPUT,
+@ReturnMessage = @ReturnMessage OUTPUT,
+@ReturnStatus = @ReturnStatus OUTPUT;
+Select @RegId as RegId,@ReturnMessage as message,@ReturnStatus as status'
+Where Id = 60

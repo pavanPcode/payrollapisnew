@@ -1,0 +1,67 @@
+// // Example stored procedure to fetch users
+// const fetchUsersUsingProcedure = async () => {
+//   const params = {};  // Add any parameters needed for the stored procedure
+//   const result = await executeProcedure('db1', 'sp_getUsers', params);
+//   return result;  // Assuming sp_getUsers returns a list of users
+// };
+
+// // Example stored procedure to insert a user
+// const insertUserUsingProcedure = async (userData) => {
+//   const params = {
+//     name: userData.name,
+//     email: userData.email,
+//     password: userData.password,
+//   };
+//   const result = await executeProcedure('db1', 'sp_insertUser', params);
+//   return result;  // Assuming sp_insertUser doesn't return any data, just confirms the insert
+// };
+
+// // Example stored procedure to get a scalar value (e.g., number of users)
+// const getUserCount = async () => {
+//   const params = {};  // Add any parameters if required
+//   const result = await executeScalarProcedure('db1', 'sp_getUserCount', params);
+//   return result;  // Returns the scalar value from the stored procedure
+// };
+
+// module.exports = {
+//   fetchUsersUsingProcedure,
+//   insertUserUsingProcedure,
+//   getUserCount,
+// };
+
+//To call select
+// const { executeSelect } = require('../utils/sqlUtil');
+
+// const getAllUsers = async () => {
+//   const query = 'SELECT * FROM Users';
+//   const users = await executeSelect(query);
+//   console.log(users);
+// };
+
+//Insert Query
+// const { executeInsert } = require('../utils/sqlUtil');
+
+// const addUser = async (username, email, password) => {
+//   const query = `INSERT INTO Users (Username, Email, Password) VALUES (@username, @email, @password)`;
+//   const params = { username, email, password };
+//   await executeInsert(query, params);
+//   console.log('User added successfully');
+// };
+//Update Query
+// const { executeUpdate } = require('../utils/sqlUtil');
+
+// const updateUser = async (userId, newEmail) => {
+//   const query = `UPDATE Users SET Email = @newEmail WHERE Id = @userId`;
+//   const params = { userId, newEmail };
+//   await executeUpdate(query, params);
+//   console.log('User updated successfully');
+// };
+//Execute StoredProcedure
+// const { executeStoredProcedure } = require('../utils/sqlUtil');
+
+// const getUserById = async (userId) => {
+//   const procedureName = 'GetUserById';
+//   const params = { userId };
+//   const user = await executeStoredProcedure(procedureName, params);
+//   console.log(user);
+// };

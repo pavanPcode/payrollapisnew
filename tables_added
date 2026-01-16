@@ -1,0 +1,27 @@
+2025-05-07
+
+1.added  dbo.EmailQueue table
+2.alter VIEW [PROD].[V_ManagerLeaves]
+3.alter PROCEDURE [PROD].[SP_UpdateLeaveStatus]
+4.alter PROCEDURE [PROD].[SP_InsertLeave]
+
+--------------------------
+std db
+-------
+1.[dbo].[RequestPasses]
+2.[dbo].[InsertRequestPassesAndVisitors]
+3.AttendeesDetails
+
+---------------------------
+check in live tables exist or not
+
+[PROD].[Project];
+[PROD].[Customer]
+[PROD].[Project_Team]
+[PROD].[Milestone]
+[PROD].[Tasks]
+[PROD].[TimeSheets]
+[PROD].[Notification]
+[PROD].[Task_Team]
+
+---------------------------------------------------------------
