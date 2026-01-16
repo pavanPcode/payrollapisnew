@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - payrollApis
+name: Build and deploy Node.js app to Azure Web App - payrollAPIs
 
 on:
   push:
@@ -51,15 +51,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2F5A4CA6AF724401902EBF009C3C623E }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4590E27752BD4F74B69C6DC757512727 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3F61B8B8697A4C84BEED389AF4979DC5 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_18D853B31CFD4E5B960259B54B46506A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_90AAFBCE5AF448839CA999855754BF65 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B052BA8D91B04BACA29884173486FCDE }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'payrollApis'
+          app-name: 'payrollAPIs'
           slot-name: 'Production'
           package: .
           
