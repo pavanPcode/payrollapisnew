@@ -64,26 +64,12 @@
  *       - BearerAuth: []
  *     parameters:
  *       - in: query
- *         name: BranchId
- *         required: false
+ *         name: SuperId
+ *         required: true
  *         schema:
  *           type: integer
- *           default: 0
- *         description: Branch ID filter. Use 0 to include all branches.
- *       - in: query
- *         name: EmployeeId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Employee ID filter. Use 0 to include all employees.
- *       - in: query
- *         name: PayPeriodId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Pay Period ID filter. Use 0 to include all periods.
+ *           default: 10000
+ *         description: SuperId.
  *     responses:
  *       200:
  *         description: Employee expenses retrieved successfully.
