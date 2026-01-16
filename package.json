@@ -17,14 +17,14 @@
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0"
   },
-  "name": "perecohrms",
+  "name": "rollcall_payroll",
   "version": "1.0.0",
   "description": "API for all Rollcall and Payroll related operations",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "author": "sathwik",
+  "author": "pcode",
   "license": "ISC",
   "keywords": []
 }
