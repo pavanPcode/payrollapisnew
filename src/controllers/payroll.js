@@ -8,12 +8,18 @@ const { utilityhandleResponse } = require('../utils/responseHandler');
 
 
 router.get('/getsalaryreport', validateToken, async (req, res, next) => {
-    const { BranchId, EmployeeId, PayPeriodId } = req.query;
+    const { BranchId, EmployeeId, PayPeriodId,DeptId,SuperId } = req.query;
 
+    if (!SuperId) {
+        return res.status(400).json({ message: 'SuperId are required' });
+    }
     const requestObj = {
         BranchId: BranchId || 0,
         EmployeeId: EmployeeId || 0,
-        PayPeriodId: PayPeriodId || 0
+        PayPeriodId: PayPeriodId || 0,
+        DeptId: DeptId || 0,
+        SuperId:SuperId
+
     };
 
     const userObj = req.user;

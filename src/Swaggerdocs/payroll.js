@@ -10,6 +10,20 @@
  *       - BearerAuth: []
  *     parameters:
  *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 10000
+ *         description: SuperId ID filter. 
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: DeptId ID filter. Use 0 to include all Dept.
+ *       - in: query
  *         name: BranchId
  *         required: false
  *         schema:
