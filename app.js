@@ -10,7 +10,7 @@ const mobileRoutes = require('./src/routes/appRoutes');
 const payrollRoutes = require('./src/routes/payrollRoutes');
 const swaggerDocs = require("./swagger");
 
-swaggerDocs(app); // Load Swagger documentation.
+swaggerDocs(app); // Load Swagger documentation..
 
 app.use(express.json());
 app.use(cors());
