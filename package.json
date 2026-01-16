@@ -22,6 +22,7 @@
   "description": "API for all Rollcall and Payroll related operations",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
   "test": "echo \"No tests configured\" && exit 0"
 },
   "author": "pcode",
