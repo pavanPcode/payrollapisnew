@@ -1,31 +1,28 @@
 {
-  "dependencies": {
-    "axios": "^1.8.1",
-    "basic-ftp": "^5.0.5",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.22.1",
-    "fs": "^0.0.1-security",
-    "ftp": "^0.3.10",
-    "mime-types": "^3.0.1",
-    "mssql": "^11.0.1",
-    "multer": "^1.4.5-lts.2",
-    "nodemailer": "^7.0.3",
-    "os": "^0.1.2",
-    "path": "^0.12.7",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
-    "winston": "^3.17.0"
-  },
   "name": "rollcall_payroll",
   "version": "1.0.0",
   "description": "API for all Rollcall and Payroll related operations",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-  "test": "echo \"No tests configured\" && exit 0"
-},
+    "test": "echo \"No tests configured\" && exit 0"
+  },
   "author": "pcode",
   "license": "ISC",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "axios": "^1.8.1",
+    "basic-ftp": "^5.0.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.22.1",
+    "ftp": "^0.3.10",
+    "mime-types": "^3.0.1",
+    "mssql": "^11.0.1",
+    "multer": "^1.4.5-lts.2",
+    "nodemailer": "^7.0.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0"
+  }
 }
