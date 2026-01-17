@@ -56,8 +56,15 @@ router.get('/getPayrollOverviewCount', validateToken, async (req, res, next) => 
 
 
 router.get('/getpayrollcounts', validateToken, async (req, res, next) => {
+    const { SuperId  } = req.query;
 
-    const requestObj = {}; 
+    if (!SuperId ) {
+        return res.status(400).json({ message: 'SuperId  are required' });
+    }
+
+    const requestObj = {
+        SuperId: SuperId
+    };
 
     const userObj = req.user;
 
