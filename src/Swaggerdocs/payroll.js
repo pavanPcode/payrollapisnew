@@ -593,3 +593,78 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+/**
+ * @swagger
+ * /payroll/payroll/getDepartmentWiseSalaries:
+ *   get:
+ *     summary: Get Department-wise Salaries
+ *     description: Fetches department-wise net payable salary for a given SuperId, Month, and Year.
+ *     tags:
+ *       - Payroll
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 10051
+ *         description: SuperId of the organization.
+ *       - in: query
+ *         name: Month
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 12
+ *           example: 4
+ *         description: Month for which salary data is required (1 = January, 12 = December).
+ *       - in: query
+ *         name: Year
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 2022
+ *         description: Year for which salary data is required.
+ *     responses:
+ *       200:
+ *         description: Department-wise salary data retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Department-wise salaries fetched successfully.
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       DepartmentId:
+ *                         type: integer
+ *                         example: 1
+ *                       DepartmentName:
+ *                         type: string
+ *                         example: ACCOUNTS
+ *                       DeptMonthlySalary:
+ *                         type: number
+ *                         example: 85000
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
