@@ -176,46 +176,6 @@
 
 
 
-/**
- * @swagger
- * /payroll/payroll/getpayrollcounts:
- *   get:
- *     summary: Get Payroll Counts
- *     description: Fetches overall payroll counts, such as number of employees processed, pending approvals, or other summary metrics.
- *     tags:
- *       - Payroll
- *     security:
- *       - BearerAuth: []
- *     parameters:
- *       - in: query
- *         name: SuperId
- *         required: true
- *         schema:
- *           type: integer
- *           default: 10000
- *         description: SuperId ID filter. 
- *     responses:
- *       200:
- *         description: Payroll counts retrieved successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ArraySuccessResponse'
- *       400:
- *         description: Missing or invalid parameters.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       401:
- *         description: Unauthorized (Missing or invalid token).
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- */
-
-
 
 // /**
 //  * @swagger
@@ -752,35 +712,27 @@
  *               $ref: '#/components/schemas/ErrorResponse'
  */
 
-
 /**
  * @swagger
- * /payroll/DashBoard/getdepartmentwisesalariescount:
+ * /payroll/payroll/getpayrollcounts:
  *   get:
- *     summary: Get Department Wise Salaries Count
- *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
+ *     summary: Get Payroll Counts
+ *     description: Fetches overall payroll counts, such as number of employees processed, pending approvals, or other summary metrics.
  *     tags:
  *       - Payroll-DashBoard
  *     security:
  *       - BearerAuth: []
  *     parameters:
  *       - in: query
- *         name: BranchId
- *         required: false
+ *         name: SuperId
+ *         required: true
  *         schema:
  *           type: integer
- *           default: 0
- *         description: Branch ID filter. Use 0 to include all branches.
- *       - in: query
- *         name: PayPeriodId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Pay Period ID filter. Use 0 to include all pay periods.
+ *           default: 10000
+ *         description: SuperId ID filter. 
  *     responses:
  *       200:
- *         description: Department-wise salary counts retrieved successfully.
+ *         description: Payroll counts retrieved successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -798,3 +750,51 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+
+
+
+// /**
+//  * @swagger
+//  * /payroll/DashBoard/getdepartmentwisesalariescount:
+//  *   get:
+//  *     summary: Get Department Wise Salaries Count
+//  *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
+//  *     tags:
+//  *       - Payroll
+//  *     security:
+//  *       - BearerAuth: []
+//  *     parameters:
+//  *       - in: query
+//  *         name: BranchId
+//  *         required: false
+//  *         schema:
+//  *           type: integer
+//  *           default: 0
+//  *         description: Branch ID filter. Use 0 to include all branches.
+//  *       - in: query
+//  *         name: PayPeriodId
+//  *         required: false
+//  *         schema:
+//  *           type: integer
+//  *           default: 0
+//  *         description: Pay Period ID filter. Use 0 to include all pay periods.
+//  *     responses:
+//  *       200:
+//  *         description: Department-wise salary counts retrieved successfully.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ArraySuccessResponse'
+//  *       400:
+//  *         description: Missing or invalid parameters.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  *       401:
+//  *         description: Unauthorized (Missing or invalid token).
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  */
