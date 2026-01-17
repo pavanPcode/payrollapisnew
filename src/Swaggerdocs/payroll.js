@@ -668,3 +668,133 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+/**
+ * @swagger
+ * /payroll/payroll/getPayrollOverviewCount:
+ *   get:
+ *     summary: Get Payroll Overview Count
+ *     description: Fetches payroll overview totals (salary components summary) for a given SuperId, Month, and Year.
+ *     tags:
+ *       - Payroll
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 10051
+ *         description: SuperId of the organization.
+ *       - in: query
+ *         name: Month
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 12
+ *           example: 4
+ *         description: Month for which payroll overview is required.
+ *       - in: query
+ *         name: Year
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 2022
+ *         description: Year for which payroll overview is required.
+ *     responses:
+ *       200:
+ *         description: Payroll overview data retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Payroll overview fetched successfully.
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     Basic:
+ *                       type: number
+ *                       example: 3000
+ *                     LossOfPay:
+ *                       type: number
+ *                       example: 0
+ *                     Pf:
+ *                       type: number
+ *                       example: 360
+ *                     Esi:
+ *                       type: number
+ *                       example: 45
+ *                     ProffTax:
+ *                       type: number
+ *                       example: 200
+ *                     Tds:
+ *                       type: number
+ *                       example: 500
+ *                     Incentives:
+ *                       type: number
+ *                       example: 1000
+ *                     AttendanceBonus:
+ *                       type: number
+ *                       example: 500
+ *                     Bonus:
+ *                       type: number
+ *                       example: 0
+ *                     SpecialAllowance:
+ *                       type: number
+ *                       example: 1800
+ *                     Hra:
+ *                       type: number
+ *                       example: 1200
+ *                     ConveyanceAllowance:
+ *                       type: number
+ *                       example: 800
+ *                     OtherAllowance:
+ *                       type: number
+ *                       example: 0
+ *                     MedicalAllowance:
+ *                       type: number
+ *                       example: 0
+ *                     GrossPay:
+ *                       type: number
+ *                       example: 3000
+ *                     Earnings:
+ *                       type: number
+ *                       example: 6000
+ *                     Deductions:
+ *                       type: number
+ *                       example: 405
+ *                     NetPayble:
+ *                       type: number
+ *                       example: 5595
+ *                     GrossSalary:
+ *                       type: number
+ *                       example: 6000
+ *                     ExpensesAllowance:
+ *                       type: number
+ *                       example: 0
+ *                     Advance:
+ *                       type: number
+ *                       example: 0
+ *                     OT:
+ *                       type: number
+ *                       example: 0
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */

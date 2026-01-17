@@ -151,7 +151,8 @@ function OperationEnums() {
     ctcGet:1419,
     getSalaryAdvances:406,
     getPayPeriods:420,
-    DepartmentWiseSalaries:421
+    DepartmentWiseSalaries:421,
+    getPayrollOverviewCount:422,
 
   };
   return Operations;
