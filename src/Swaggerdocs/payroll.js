@@ -714,7 +714,7 @@
 
 /**
  * @swagger
- * /payroll/payroll/getpayrollcounts:
+ * /payroll/DashBoard/getpayrollcounts:
  *   get:
  *     summary: Get Payroll Counts
  *     description: Fetches overall payroll counts, such as number of employees processed, pending approvals, or other summary metrics.
