@@ -186,6 +186,14 @@
  *       - Payroll
  *     security:
  *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 10000
+ *         description: SuperId ID filter. 
  *     responses:
  *       200:
  *         description: Payroll counts retrieved successfully.
