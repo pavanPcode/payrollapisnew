@@ -153,6 +153,9 @@ function OperationEnums() {
     getPayPeriods:420,
     DepartmentWiseSalaries:421,
     getPayrollOverviewCount:422,
+    getPayPeriod:423,
+    PayrollImportedAttendance:424,
+    PayrollProcessBranchWise:425
 
   };
   return Operations;

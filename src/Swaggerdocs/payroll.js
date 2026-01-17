@@ -798,3 +798,182 @@
 //  *             schema:
 //  *               $ref: '#/components/schemas/ErrorResponse'
 //  */
+
+/**
+ * @swagger
+ * /payroll/Process/getPayPeriod:
+ *   get:
+ *     summary: Get Pay Period
+ *     description: Fetches pay period details for the given SuperId.
+ *     tags:
+ *       - Payroll-Process
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 10000
+ *         description: SuperId of the organization.
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 4
+ *         description: BranchId of the organization.
+ *     responses:
+ *       200:
+ *         description: Pay period data retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Pay period fetched successfully.
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       Id:
+ *                         type: integer
+ *                         example: 1
+ *                       StartDate:
+ *                         type: string
+ *                         format: date
+ *                         example: 2024-04-01
+ *                       EndDate:
+ *                         type: string
+ *                         format: date
+ *                         example: 2024-04-30
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/Process/PayrollImportedAttendance:
+ *   get:
+ *     tags:
+ *       - Payroll-Process
+ *     summary: Get or process imported attendance
+ *     description: >
+ *       - Set IsInsertInToAttendance = 0 to only get attendance data  
+ *       - Set IsInsertInToAttendance = 1 to insert attendance data into the Attendance table
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10051
+ *       - in: query
+ *         name: PayPeriodId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 27
+ *       - in: query
+ *         name: IsInsertInToAttendance
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           enum: [0, 1]
+ *         description: |
+ *           0 → Only get attendance data  
+ *           1 → Insert attendance data
+ *         example: 0
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 4
+ *     responses:
+ *       200:
+ *         description: Attendance data processed successfully
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/Process/PayrollProcessBranchWise:
+ *   get:
+ *     tags:
+ *       - Payroll-Process
+ *     summary: Process payroll branch-wise for a pay period
+ *     description: Calls PRSP_PayrollProcessBranchWise stored procedure to process payroll for a specific branch and pay period.
+ *     parameters:
+ *       - in: query
+ *         name: ProcessingUser
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: User ID who is processing the payroll
+ *       - in: query
+ *         name: PayperiodId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Pay period ID
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Branch ID
+ *     responses:
+ *       200:
+ *         description: Payroll processed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Payroll processed successfully
+ *       400:
+ *         description: Missing required parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: ProcessingUser and PayPeriodId and BranchId are required
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
