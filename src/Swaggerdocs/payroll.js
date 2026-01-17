@@ -217,83 +217,83 @@
 
 
 
-/**
- * @swagger
- * /payroll/payroll/getdepartmentwisesalariescount:
- *   get:
- *     summary: Get Department Wise Salaries Count
- *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
- *     tags:
- *       - Payroll
- *     security:
- *       - BearerAuth: []
- *     parameters:
- *       - in: query
- *         name: BranchId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Branch ID filter. Use 0 to include all branches.
- *       - in: query
- *         name: PayPeriodId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Pay Period ID filter. Use 0 to include all pay periods.
- *     responses:
- *       200:
- *         description: Department-wise salary counts retrieved successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ArraySuccessResponse'
- *       400:
- *         description: Missing or invalid parameters.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       401:
- *         description: Unauthorized (Missing or invalid token).
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- */
+// /**
+//  * @swagger
+//  * /payroll/payroll/getdepartmentwisesalariescount:
+//  *   get:
+//  *     summary: Get Department Wise Salaries Count
+//  *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
+//  *     tags:
+//  *       - Payroll
+//  *     security:
+//  *       - BearerAuth: []
+//  *     parameters:
+//  *       - in: query
+//  *         name: BranchId
+//  *         required: false
+//  *         schema:
+//  *           type: integer
+//  *           default: 0
+//  *         description: Branch ID filter. Use 0 to include all branches.
+//  *       - in: query
+//  *         name: PayPeriodId
+//  *         required: false
+//  *         schema:
+//  *           type: integer
+//  *           default: 0
+//  *         description: Pay Period ID filter. Use 0 to include all pay periods.
+//  *     responses:
+//  *       200:
+//  *         description: Department-wise salary counts retrieved successfully.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ArraySuccessResponse'
+//  *       400:
+//  *         description: Missing or invalid parameters.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  *       401:
+//  *         description: Unauthorized (Missing or invalid token).
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  */
 
 
-/**
- * @swagger
- * /payroll/payroll/getdpayrolloverviewcount:
- *   get:
- *     summary: Get Payroll Overview Counts
- *     description: Fetches payroll overview counts such as total employees, processed salaries, pending approvals, etc., for dashboard display.
- *     tags:
- *       - Payroll
- *     security:
- *       - BearerAuth: []
- *     responses:
- *       200:
- *         description: Payroll overview counts retrieved successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ArraySuccessResponse'
- *       400:
- *         description: Missing or invalid parameters.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       401:
- *         description: Unauthorized (Missing or invalid token).
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- */
+// /**
+//  * @swagger
+//  * /payroll/payroll/getdpayrolloverviewcount:
+//  *   get:
+//  *     summary: Get Payroll Overview Counts
+//  *     description: Fetches payroll overview counts such as total employees, processed salaries, pending approvals, etc., for dashboard display.
+//  *     tags:
+//  *       - Payroll
+//  *     security:
+//  *       - BearerAuth: []
+//  *     responses:
+//  *       200:
+//  *         description: Payroll overview counts retrieved successfully.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ArraySuccessResponse'
+//  *       400:
+//  *         description: Missing or invalid parameters.
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  *       401:
+//  *         description: Unauthorized (Missing or invalid token).
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/ErrorResponse'
+//  */
 
 
 
@@ -401,53 +401,6 @@
 
 
 
-
-
-/**
- * @swagger
- * /payroll/payroll/getdepartmentwisesalariescount:
- *   get:
- *     summary: Get Department Wise Salaries Count
- *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
- *     tags:
- *       - Payroll
- *     security:
- *       - BearerAuth: []
- *     parameters:
- *       - in: query
- *         name: BranchId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Branch ID filter. Use 0 to include all branches.
- *       - in: query
- *         name: PayPeriodId
- *         required: false
- *         schema:
- *           type: integer
- *           default: 0
- *         description: Pay Period ID filter. Use 0 to include all pay periods.
- *     responses:
- *       200:
- *         description: Department-wise salary counts retrieved successfully.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ArraySuccessResponse'
- *       400:
- *         description: Missing or invalid parameters.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- *       401:
- *         description: Unauthorized (Missing or invalid token).
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ErrorResponse'
- */
 
 /**
  * @swagger
@@ -595,12 +548,12 @@
  */
 /**
  * @swagger
- * /payroll/payroll/getDepartmentWiseSalaries:
+ * /payroll/DashBoard/getDepartmentWiseSalaries:
  *   get:
  *     summary: Get Department-wise Salaries
  *     description: Fetches department-wise net payable salary for a given SuperId, Month, and Year.
  *     tags:
- *       - Payroll
+ *       - Payroll-DashBoard
  *     security:
  *       - BearerAuth: []
  *     parameters:
@@ -670,12 +623,12 @@
  */
 /**
  * @swagger
- * /payroll/payroll/getPayrollOverviewCount:
+ * /payroll/DashBoard/getPayrollOverviewCount:
  *   get:
  *     summary: Get Payroll Overview Count
  *     description: Fetches payroll overview totals (salary components summary) for a given SuperId, Month, and Year.
  *     tags:
- *       - Payroll
+ *       - Payroll-DashBoard
  *     security:
  *       - BearerAuth: []
  *     parameters:
@@ -785,6 +738,53 @@
  *                     OT:
  *                       type: number
  *                       example: 0
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
+
+/**
+ * @swagger
+ * /payroll/DashBoard/getdepartmentwisesalariescount:
+ *   get:
+ *     summary: Get Department Wise Salaries Count
+ *     description: Fetches payroll summary counts grouped by department, such as number of employees and total salary per department.
+ *     tags:
+ *       - Payroll-DashBoard
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: Branch ID filter. Use 0 to include all branches.
+ *       - in: query
+ *         name: PayPeriodId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: Pay Period ID filter. Use 0 to include all pay periods.
+ *     responses:
+ *       200:
+ *         description: Department-wise salary counts retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
  *       400:
  *         description: Missing or invalid parameters.
  *         content:

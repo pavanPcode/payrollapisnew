@@ -134,33 +134,33 @@ router.get('/getpayrollcounts', validateToken, async (req, res, next) => {
     );
 });
 
-router.get('/getdepartmentwisesalariescount', validateToken, async (req, res, next) => {
+// router.get('/getdepartmentwisesalariescount', validateToken, async (req, res, next) => {
 
-    const requestObj = {}; // No filters
+//     const requestObj = {}; // No filters
 
-    const userObj = req.user;
+//     const userObj = req.user;
 
-    return DbDataByOperationId(
-        requestObj,
-        userObj,
-        res,
-        OperationEnums().getdepartmentwisesalariescount
-    );
-});
+//     return DbDataByOperationId(
+//         requestObj,
+//         userObj,
+//         res,
+//         OperationEnums().getdepartmentwisesalariescount
+//     );
+// });
 
-router.get('/getdpayrolloverviewcount', validateToken, async (req, res, next) => {
+// router.get('/getdpayrolloverviewcount', validateToken, async (req, res, next) => {
 
-    const requestObj = {}; // No filters
+//     const requestObj = {}; // No filters
 
-    const userObj = req.user;
+//     const userObj = req.user;
 
-    return DbDataByOperationId(
-        requestObj,
-        userObj,
-        res,
-        OperationEnums().getdpayrolloverviewcount
-    );
-});
+//     return DbDataByOperationId(
+//         requestObj,
+//         userObj,
+//         res,
+//         OperationEnums().getdpayrolloverviewcount
+//     );
+// });
 
 // router.delete('/deleteAdvance', validateToken, async (req, res, next) => {
 //     const { AdvanceId, UpdatedBy } = req.body;
