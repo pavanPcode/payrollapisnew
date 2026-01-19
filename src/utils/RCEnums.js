@@ -157,6 +157,8 @@ function OperationEnums() {
     PayrollImportedAttendance:424,
     PayrollProcessBranchWise:425
 
+    ,GetEmployeePayReport:427
+
   };
   return Operations;
 }

@@ -75,26 +75,29 @@ router.get('/PayrollProcessBranchWise', validateToken, async (req, res, next) =>
         OperationEnums().PayrollProcessBranchWise // You need to add this enum
     );
 });
-// router.get('/getpayrollcounts', validateToken, async (req, res, next) => {
-//     const { SuperId  } = req.query;
 
-//     if (!SuperId ) {
-//         return res.status(400).json({ message: 'SuperId  are required' });
-//     }
 
-//     const requestObj = {
-//         SuperId: SuperId
-//     };
 
-//     const userObj = req.user;
+router.get('/GetEmployeePayReport', validateToken, async (req, res, next) => {
+    const {  PayPeriodId,BranchId  } = req.query;
 
-//     return DbDataByOperationId(
-//         requestObj,
-//         userObj,
-//         res,
-//         OperationEnums().getpayrollcounts
-//     );
-// });
+    if (!PayPeriodId  || !BranchId) {
+        return res.status(400).json({ message: ' PayPeriodId   and  BranchId are required' });
+    }
 
+    const requestObj = {
+        PayPeriodId: PayPeriodId,
+        BranchId,BranchId
+    };
+
+    const userObj = req.user;
+
+    return DbDataByOperationId(
+        requestObj,
+        userObj,
+        res,
+        OperationEnums().GetEmployeePayReport // You need to add this enum
+    );
+});
 
 module.exports = router;

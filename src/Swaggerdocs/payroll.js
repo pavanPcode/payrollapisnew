@@ -932,6 +932,8 @@
  *       - Payroll-Process
  *     summary: Process payroll branch-wise for a pay period
  *     description: Calls PRSP_PayrollProcessBranchWise stored procedure to process payroll for a specific branch and pay period.
+ *     security:
+ *       - BearerAuth: []
  *     parameters:
  *       - in: query
  *         name: ProcessingUser
@@ -974,6 +976,61 @@
  *                   example: ProcessingUser and PayPeriodId and BranchId are required
  *       401:
  *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/Process/GetEmployeePayReport:
+ *   get:
+ *     tags:
+ *       - Payroll-Process
+ *     summary: Get employee pay report
+ *     description: Fetches employee pay report for a given pay period and branch.
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: PayPeriodId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 35
+ *         description: Pay period ID
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 4
+ *         description: Branch ID
+ *     responses:
+ *       200:
+ *         description: Employee pay report retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                 message:
+ *                   type: string
+ *                   example: Employee pay report fetched successfully
+ *       400:
+ *         description: Missing required parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: PayPeriodId and BranchId are required
+ *       401:
+ *         description: Unauthorized (Missing or invalid token)
  *       500:
  *         description: Internal server error
  */
