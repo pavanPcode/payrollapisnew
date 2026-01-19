@@ -57,12 +57,12 @@ router.get('/PayrollProcessBranchWise', validateToken, async (req, res, next) =>
     const { ProcessingUser , PayperiodId,BranchId  } = req.query;
 
     if (!ProcessingUser || !PayperiodId  || !BranchId) {
-        return res.status(400).json({ message: 'ProcessingUser and PayPeriodId   and  BranchId are required' });
+        return res.status(400).json({ message: 'ProcessingUser and PayperiodId   and  BranchId are required' });
     }
 
     const requestObj = {
         ProcessingUser: ProcessingUser,
-        PayPeriodId: PayPeriodId,
+        PayperiodId: PayperiodId,
         BranchId,BranchId
     };
 
