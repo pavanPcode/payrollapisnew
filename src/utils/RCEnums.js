@@ -157,7 +157,9 @@ function OperationEnums() {
     PayrollImportedAttendance:424,
     PayrollProcessBranchWise:425
 
-    ,GetEmployeePayReport:427
+    ,GetEmployeePayReport:427,
+    AddAdvancePayments:429,
+    deleteAdvancePayments:430
 
   };
   return Operations;

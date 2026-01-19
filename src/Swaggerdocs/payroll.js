@@ -1034,3 +1034,157 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/AdvancePayments/AddAdvancePayments:
+ *   post:
+ *     tags:
+ *       - Payroll-AdvancePayments
+ *     summary: Add employee salary advance payment
+ *     description: Adds a new salary advance payment for an employee.
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - SuperId
+ *               - RegId
+ *               - StartDate
+ *               - AdvanceAmount
+ *               - Emi
+ *               - Tenure
+ *               - CreatedBy
+ *             properties:
+ *               SuperId:
+ *                 type: integer
+ *                 example: 10051
+ *               RegId:
+ *                 type: integer
+ *                 example: 101
+ *               StartDate:
+ *                 type: string
+ *                 format: date
+ *                 example: 2024-04-01
+ *               AdvanceAmount:
+ *                 type: number
+ *                 example: 20000
+ *               Emi:
+ *                 type: number
+ *                 example: 2000
+ *               Tenure:
+ *                 type: integer
+ *                 example: 10
+ *               CreatedBy:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       200:
+ *         description: Advance payment added successfully
+ *       400:
+ *         description: Invalid or missing parameters
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/AdvancePayments/deleteAdvancePayments:
+ *   post:
+ *     tags:
+ *       - Payroll-AdvancePayments
+ *     summary: Delete (Deactivate) employee salary advance payment
+ *     description: Soft deletes an advance payment by setting IsActive to 0.
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - AdvancePayment
+ *               - UpdatedBy
+ *             properties:
+ *               AdvancePayment:
+ *                 type: integer
+ *                 example: 10
+ *                 description: Advance payment ID
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 1
+ *                 description: User who is deleting the record
+ *     responses:
+ *       200:
+ *         description: Advance payment deleted successfully
+ *       400:
+ *         description: Invalid or missing parameters
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/AdvancePayments/getSalaryAdvances:
+ *   get:
+ *     summary: Get Salary Advance Details
+ *     description: Retrieves salary advance details based on SuperId and optional filters like EmployeeId, BranchId, and DeptId. Passing 0 or omitting optional parameters will return all applicable records.
+ *     tags:
+ *       - Payroll-AdvancePayments
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10051
+ *         description: Unique Super ID of the organization
+ *       - in: query
+ *         name: EmployeeId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: Employee ID (0 or not provided fetches all employees)
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 2
+ *         description: Branch ID (0 or not provided fetches all branches)
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 1
+ *         description: Department ID (0 or not provided fetches all departments)
+ *     responses:
+ *       200:
+ *         description: Salary advance details retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SingleRecordSuccessResponse'
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */

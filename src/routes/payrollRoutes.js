@@ -6,6 +6,7 @@ const router = express.Router();
 router.use('/payroll',require('../controllers/payroll'));
 router.use('/DashBoard',require('../controllers/payrollDashBoardController'));
 router.use('/Process',require('../controllers/payrollProcessController'));
+router.use('/AdvancePayments',require('../controllers/payrollAdvancePaymentsController'));
 
 
 // Export the router to be used in the app1
