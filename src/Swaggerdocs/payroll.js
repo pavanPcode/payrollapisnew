@@ -64,7 +64,58 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
-
+/**
+ * @swagger
+ * /payroll/payroll/getemployees:
+ *   get:
+ *     summary: Get Employees under Supervisor
+ *     description: Fetches a list of employees reporting to a supervisor ID
+ *     tags:
+ *       - Payroll
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: superid
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10000
+ *         description: Supervisor ID to fetch employees under their management
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 2
+ *         description: Branch ID (0 or not provided fetches all branches)
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 1
+ *         description: Department ID (0 or not provided fetches all departments)
+ *     responses:
+ *       200:
+ *         description: List of employees retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *       400:
+ *         description: Missing or invalid parameter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
 
 /**
  * @swagger

@@ -159,7 +159,8 @@ function OperationEnums() {
 
     ,GetEmployeePayReport:427,
     AddAdvancePayments:429,
-    deleteAdvancePayments:430
+    deleteAdvancePayments:430,
+    getemployeespr:432,
 
   };
   return Operations;
