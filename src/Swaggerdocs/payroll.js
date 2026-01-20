@@ -1108,10 +1108,10 @@
  *           schema:
  *             type: object
  *             required:
- *               - AdvancePayment
+ *               - AdvancePaymentId
  *               - UpdatedBy
  *             properties:
- *               AdvancePayment:
+ *               AdvancePaymentId:
  *                 type: integer
  *                 example: 10
  *                 description: Advance payment ID
@@ -1171,6 +1171,52 @@
  *     responses:
  *       200:
  *         description: Salary advance details retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SingleRecordSuccessResponse'
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
+/**
+ * @swagger
+ * /payroll/EmployeCTC/getctcreport:
+ *   get:
+ *     summary: Get CTC Report
+ *     description: Retrieves CTC report details based on SuperId and optionally EmployeeId. If EmployeeId is 0 or not provided, data for all employees under the SuperId will be returned.
+ *     tags:
+ *       - Payroll-EmployeCTC
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10051
+ *         description: Unique Super ID of the organization
+ *       - in: query
+ *         name: EmployeeId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: Employee ID (0 or not provided fetches all employees)
+ *     responses:
+ *       200:
+ *         description: CTC report retrieved successfully
  *         content:
  *           application/json:
  *             schema:

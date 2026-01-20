@@ -7,6 +7,7 @@ router.use('/payroll',require('../controllers/payroll'));
 router.use('/DashBoard',require('../controllers/payrollDashBoardController'));
 router.use('/Process',require('../controllers/payrollProcessController'));
 router.use('/AdvancePayments',require('../controllers/payrollAdvancePaymentsController'));
+router.use('/EmployeCTC',require('../controllers/payrollEmployeCTCController'));
 
 
 // Export the router to be used in the app1
