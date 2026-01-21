@@ -161,6 +161,7 @@ function OperationEnums() {
     AddAdvancePayments:429,
     deleteAdvancePayments:430,
     getemployeespr:432,
+    getRegExpensespr:433,
 
   };
   return Operations;

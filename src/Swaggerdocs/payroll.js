@@ -1285,3 +1285,48 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+/**
+ * @swagger
+ * /payroll/RegExpenses/getRegExpenses:
+ *   get:
+ *     summary: Get Employee Regular Expenses
+ *     description: Fetches expense details for employees based on branch, employee, and pay period filters.
+ *     tags:
+ *       - Payroll-RegExpenses
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 10000
+ *         description: SuperId.
+ *       - in: query
+ *         name: RegId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 27
+ *         description: RegId  (0 or not provided fetches all employees).
+ *     responses:
+ *       200:
+ *         description: Employee expenses retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
