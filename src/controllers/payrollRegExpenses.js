@@ -8,13 +8,15 @@ const { utilityhandleResponse } = require('../utils/responseHandler');
 
 
 router.get('/getRegExpenses', validateToken, async (req, res, next) => {
-    const { SuperId,RegId } = req.query;
+    const { SuperId,RegId,BranchId,PayPeriodId } = req.query;
 
     if (!SuperId || !RegId) {
-        return res.status(400).json({ message: 'SuperId and RegId are required' });
+        return res.status(400).json({ message: 'SuperId and RegId and BranchId and PayPeriodId are required' });
     }
     const requestObj = {SuperId:SuperId,
-        RegId:RegId || 0
+        RegId:RegId || 0,
+        BranchId:BranchId  || 0,
+        PayPeriodId:PayPeriodId || 0
     };
 
     const userObj = req.user;

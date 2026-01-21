@@ -1310,6 +1310,21 @@
  *           type: integer
  *           default: 27
  *         description: RegId  (0 or not provided fetches all employees).
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 27
+ *         description: BranchId  (0 or not provided fetches all BranchId).
+ *       - in: query
+ *         name: PayPeriodId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 27
+ *         description: PayPeriodId  (0 or not provided fetches all PayPeriodId).
+
  *     responses:
  *       200:
  *         description: Employee expenses retrieved successfully.
