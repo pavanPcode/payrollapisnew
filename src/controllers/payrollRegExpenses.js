@@ -7,7 +7,7 @@ const { utilityhandleResponse } = require('../utils/responseHandler');
 const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage() });
 
-router.post('/addRegExpenses',validateToken,upload.none(), async (req, res, next) => {
+router.post('/addRegExpenses',validateToken,upload.single('Attachment'), async (req, res, next) => {
     const Data = req.body;
     const userObj = req.user;
     console.log('Data',Data)

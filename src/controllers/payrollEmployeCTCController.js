@@ -5,8 +5,6 @@ const { OperationEnums } = require("../utils/RCEnums");
 const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
 
-
-
 router.get('/getctcreport', validateToken, async (req, res, next) => {
     const { EmployeeId,SuperId } = req.query;
 
@@ -24,7 +22,5 @@ router.get('/getctcreport', validateToken, async (req, res, next) => {
         OperationEnums().ctcGet
     );
 });
-
-
 
 module.exports = router;
