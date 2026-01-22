@@ -1324,7 +1324,6 @@
  *           type: integer
  *           default: 27
  *         description: PayPeriodId  (0 or not provided fetches all PayPeriodId).
-
  *     responses:
  *       200:
  *         description: Employee expenses retrieved successfully.
@@ -1344,4 +1343,73 @@
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/RegExpenses/addRegExpenses:
+ *   post:
+ *     summary: Add Regular Expense
+ *     description: API to add regular employee expenses with attachment
+ *     tags:
+ *       - Payroll-RegExpenses
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - SuperId
+ *               - EmployeeId
+ *               - ExpenseDate
+ *               - Notes
+ *               - Amount
+ *               - CreatedBy
+ *             properties:
+ *               SuperId:
+ *                 type: integer
+ *                 example: 10051
+ *               EmployeeId:
+ *                 type: integer
+ *                 example: 20012
+ *               ExpenseDate:
+ *                 type: string
+ *                 format: date
+ *                 example: "2026-01-20"
+ *               Notes:
+ *                 type: string
+ *                 example: Travel expenses
+ *               Amount:
+ *                 type: number
+ *                 format: float
+ *                 example: 1500
+ *               CreatedBy:
+ *                 type: integer
+ *                 example: 10051
+ *               Attachment:
+ *                 type: string
+ *                 format: binary
+ *                 description: Upload expense bill or receipt
+ *     responses:
+ *       200:
+ *         description: Expense added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Expense added successfully
+ *       400:
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
  */

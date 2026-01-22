@@ -5,7 +5,11 @@ const { OperationEnums } = require("../utils/RCEnums");
 const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
 
-
+router.post('/addRegExpenses',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().addRegExpenses);
+});
 
 router.get('/getRegExpenses', validateToken, async (req, res, next) => {
     const { SuperId,RegId,BranchId,PayPeriodId } = req.query;
