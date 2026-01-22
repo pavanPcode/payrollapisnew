@@ -156,13 +156,15 @@ function OperationEnums() {
     getPayPeriod:423,
     PayrollImportedAttendance:424,
     PayrollProcessBranchWise:425
-
     ,GetEmployeePayReport:427,
     AddAdvancePayments:429,
     deleteAdvancePayments:430,
     getemployeespr:432,
     getRegExpensespr:433,
     addRegExpenses:434,
+    ApproveRegExpenses:435,
+    deleteRegExpenses:436,
+
 
   };
   return Operations;

@@ -1413,3 +1413,101 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/RegExpenses/ApproveRegExpenses:
+ *   post:
+ *     summary: Approve Regular Expense
+ *     description: Approve and activate a regular expense
+ *     tags:
+ *       - Payroll-RegExpenses
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - RegExpensesId
+ *               - UpdatedBy
+ *             properties:
+ *               RegExpensesId:
+ *                 type: integer
+ *                 description: Expense record ID
+ *                 example: 45
+ *               UpdatedBy:
+ *                 type: integer
+ *                 description: User who approves the expense
+ *                 example: 10051
+ *     responses:
+ *       200:
+ *         description: Expense approved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Expense approved successfully
+ *       400:
+ *         description: Invalid input
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/RegExpenses/deleteRegExpenses:
+ *   post:
+ *     summary: Delete Regular Expense
+ *     description: Soft delete a regular expense by updating IsActive status
+ *     tags:
+ *       - Payroll-RegExpenses
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - RegExpensesId
+ *               - UpdatedBy
+ *             properties:
+ *               RegExpensesId:
+ *                 type: integer
+ *                 description: Expense ID to be deleted
+ *                 example: 45
+ *               UpdatedBy:
+ *                 type: integer
+ *                 description: User who deletes the expense
+ *                 example: 10051
+ *     responses:
+ *       200:
+ *         description: Expense deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Expense deleted successfully
+ *       400:
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
