@@ -10,7 +10,9 @@ const axios = require('axios');
 const FormData = require('form-data');
 const fs = require('fs');
 
-const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net/download?path='
+const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net'
+const filegetdomain = 'https://pcuploadfiles.azurewebsites.net/download?path='
+
 async function uploadFileToServer({ file, superId, type, product }) {
   try {
     const formData = new FormData();
@@ -92,7 +94,7 @@ router.get('/getVendorExpenses', validateToken, async (req, res, next) => {
     }
     const requestObj = {SuperId:SuperId,
         SuperId:SuperId ,
-        fileuploaddomain:fileuploaddomain
+        fileuploaddomain:filegetdomain
     };
 
     const userObj = req.user;
@@ -163,7 +165,7 @@ router.get('/getRegExpenses', validateToken, async (req, res, next) => {
         RegId:RegId || 0,
         BranchId:BranchId  || 0,
         PayPeriodId:PayPeriodId || 0,
-        fileuploaddomain:fileuploaddomain
+        fileuploaddomain:filegetdomain
     };
 
     const userObj = req.user;
