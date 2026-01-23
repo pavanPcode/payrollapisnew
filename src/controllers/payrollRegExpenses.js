@@ -65,7 +65,7 @@ router.post('/addVendorExpenses',validateToken,upload.single('Attachment'), asyn
           product
         });
       }
-    Data.Attachment = `${product}/${type}/${superId}/${originalName}`;
+    Data.Attachment = `${product}/${superId}/${type}/${originalName}`;
 
     console.log('Data',Data)
 
@@ -134,7 +134,7 @@ router.post('/addRegExpenses',validateToken,upload.single('Attachment'), async (
           product
         });
       }
-    Data.Attachment = `${product}/${type}/${superId}/${originalName}`;
+    Data.Attachment = `${product}/${superId}/${type}/${originalName}`;
 
     console.log('Data',Data)
 
