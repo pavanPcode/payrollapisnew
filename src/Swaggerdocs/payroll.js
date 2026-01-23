@@ -1558,7 +1558,7 @@
  *                 type: number
  *                 format: double
  *                 example: 12500.50
- *               AddressOrNotes:
+ *               Notes:
  *                 type: string
  *                 example: Office stationery purchase
  *               Attachment:
@@ -1652,7 +1652,7 @@
  *                       FilePath:
  *                         type: string
  *                         example: https://files.example.com/payroll/Vendor/10051/bill1.jpg
- *                       AddressOrNotes:
+ *                       Notes:
  *                         type: string
  *                         example: Office stationery purchase
  *                       IsApproved:
