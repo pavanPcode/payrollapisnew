@@ -10,7 +10,7 @@ const axios = require('axios');
 const FormData = require('form-data');
 const fs = require('fs');
 
-const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net'
+const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net/download?path='
 async function uploadFileToServer({ file, superId, type, product }) {
   try {
     const formData = new FormData();
