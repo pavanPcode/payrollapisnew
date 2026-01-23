@@ -478,6 +478,14 @@
  *           type: integer
  *         example: 3699
  *         description: Employee ID (0 or not provided fetches all employees)
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: BranchId ID (0 or not provided fetches all BranchId)
+ 
  *     responses:
  *       200:
  *         description: CTC report retrieved successfully
@@ -1265,6 +1273,14 @@
  *           type: integer
  *         example: 3699
  *         description: Employee ID (0 or not provided fetches all employees)
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: BranchId ID (0 or not provided fetches all BranchId)
+ 
  *     responses:
  *       200:
  *         description: CTC report retrieved successfully
