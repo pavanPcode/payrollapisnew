@@ -485,7 +485,14 @@
  *           type: integer
  *         example: 3699
  *         description: BranchId ID (0 or not provided fetches all BranchId)
- 
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: DeptId ID (0 or not provided fetches all DeptId)
+  
  *     responses:
  *       200:
  *         description: CTC report retrieved successfully
@@ -1280,7 +1287,14 @@
  *           type: integer
  *         example: 3699
  *         description: BranchId ID (0 or not provided fetches all BranchId)
- 
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3699
+ *         description: DeptId ID (0 or not provided fetches all DeptId)
+  
  *     responses:
  *       200:
  *         description: CTC report retrieved successfully
