@@ -70,6 +70,20 @@ router.post('/addVendorExpenses',validateToken,upload.single('Attachment'), asyn
     return DbDataByOperationId(Data,userObj, res, OperationEnums().addVendorExp);
 });
 
+router.post('/deleteVendorExpenses',validateToken,upload.none(), async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    console.log('Data',Data)
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().deleteVendorExpenses);
+});
+
+router.post('/ApproveVendorExpenses',validateToken,upload.none(), async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    console.log('Data',Data)
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().ApproveVendorExpenses);
+});
+
 router.get('/getVendorExpenses', validateToken, async (req, res, next) => {
     const { SuperId } = req.query;
 

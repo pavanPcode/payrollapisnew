@@ -1684,3 +1684,93 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/RegExpenses/deleteVendorExpenses:
+ *   post:
+ *     summary: Delete Vendor Expense
+ *     description: Soft delete a vendor expense by setting IsActive = 0
+ *     tags:
+ *       - Payroll-Vendor
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - Id
+ *               - UpdatedBy
+ *             properties:
+ *               Id:
+ *                 type: integer
+ *                 example: 12
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 12
+ *     responses:
+ *       200:
+ *         description: Vendor expense deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Vendor expense deleted successfully
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/RegExpenses/ApproveVendorExpenses:
+ *   post:
+ *     summary: Approve Vendor Expense
+ *     description: Approve a vendor expense by setting IsApproved = 1
+ *     tags:
+ *       - Payroll-Vendor
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - Id
+ *               - UpdatedBy
+ *             properties:
+ *               Id:
+ *                 type: integer
+ *                 example: 12
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 12
+ *     responses:
+ *       200:
+ *         description: Vendor expense approved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Vendor expense approved successfully
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */

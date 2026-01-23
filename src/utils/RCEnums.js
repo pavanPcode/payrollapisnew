@@ -166,7 +166,8 @@ function OperationEnums() {
     deleteRegExpenses:436,
     addVendorExp:437,
     getVendorExp:438,
-
+    ApproveVendorExpenses : 439,
+    deleteVendorExpenses : 440
 
   };
   return Operations;
