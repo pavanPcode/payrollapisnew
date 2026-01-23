@@ -1511,3 +1511,176 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ *  /payroll/RegExpenses/addVendorExpenses:
+ *   post:
+ *     summary: Add Vendor Expense
+ *     description: Upload vendor expense details along with an attachment file
+ *     tags:
+ *       - Payroll-Vendor
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - SuperId
+ *               - ExpenseTypeId
+ *               - ExpenseDate
+ *               - VendorName
+ *               - Amount
+ *               - CreatedBy
+ *             properties:
+ *               SuperId:
+ *                 type: integer
+ *                 example: 10051
+ *               ExpenseTypeId:
+ *                 type: integer
+ *                 example: 3
+ *               ExpenseDate:
+ *                 type: string
+ *                 format: date
+ *                 example: 2026-01-23
+ *               VendorName:
+ *                 type: string
+ *                 example: ABC Supplies
+ *               VendorCode:
+ *                 type: string
+ *                 example: VND-001
+ *               Mobile:
+ *                 type: string
+ *                 example: 9876543210
+ *               Amount:
+ *                 type: number
+ *                 format: double
+ *                 example: 12500.50
+ *               AddressOrNotes:
+ *                 type: string
+ *                 example: Office stationery purchase
+ *               Attachment:
+ *                 type: string
+ *                 format: binary
+ *               CreatedBy:
+ *                 type: integer
+ *                 example: 27
+ *     responses:
+ *       200:
+ *         description: Vendor expense added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Vendor expense added successfully
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /payroll/RegExpenses/getVendorExpenses:
+ *   get:
+ *     summary: Get Vendor Expenses
+ *     description: Fetch all vendor expenses for a given SuperId
+ *     tags:
+ *       - Payroll-Vendor
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10051
+ *     responses:
+ *       200:
+ *         description: Vendor expenses fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       Id:
+ *                         type: integer
+ *                         example: 12
+ *                       SuperId:
+ *                         type: integer
+ *                         example: 10051
+ *                       VendorId:
+ *                         type: integer
+ *                         nullable: true
+ *                         example: null
+ *                       ExpenseTypeId:
+ *                         type: integer
+ *                         example: 3
+ *                       ExpenseDate:
+ *                         type: string
+ *                         format: date
+ *                         example: 2026-01-23
+ *                       VendorName:
+ *                         type: string
+ *                         example: ABC Supplies
+ *                       VendorCode:
+ *                         type: string
+ *                         example: VND-001
+ *                       Mobile:
+ *                         type: string
+ *                         example: 9876543210
+ *                       Amount:
+ *                         type: number
+ *                         format: double
+ *                         example: 12500.50
+ *                       FilePath:
+ *                         type: string
+ *                         example: https://files.example.com/payroll/Vendor/10051/bill1.jpg
+ *                       AddressOrNotes:
+ *                         type: string
+ *                         example: Office stationery purchase
+ *                       IsApproved:
+ *                         type: boolean
+ *                         example: false
+ *                       IsActive:
+ *                         type: boolean
+ *                         example: true
+ *                       CreatedBy:
+ *                         type: integer
+ *                         example: 101
+ *                       CreatedOn:
+ *                         type: string
+ *                         format: date-time
+ *                         example: 2026-01-23T10:30:00
+ *                       UpdatedBy:
+ *                         type: integer
+ *                         nullable: true
+ *                         example: null
+ *                       UpdatedOn:
+ *                         type: string
+ *                         format: date-time
+ *                         nullable: true
+ *                         example: null
+ *       400:
+ *         description: SuperId is required
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */

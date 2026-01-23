@@ -25,3 +25,34 @@ check in live tables exist or not
 [PROD].[Task_Team]
 
 ---------------------------------------------------------------
+
+payroll -- added table
+
+CREATE TABLE PROD.VendorExpense
+(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+
+    -- Vendor / Expense Details
+    SuperId INT NOT NULL,
+    VendorId INT NULL,
+    ExpenseTypeId INT NOT NULL,
+    ExpenseDate DATE NOT NULL,
+
+    VendorName VARCHAR(200) NOT NULL,
+    VendorCode VARCHAR(100) NULL,
+    Mobile VARCHAR(15) NULL,
+
+    Amount DECIMAL(18,2) NOT NULL,
+    FilePath VARCHAR(500) NULL,
+    AddressOrNotes VARCHAR(MAX) NULL,
+
+    -- Status Flags
+    IsApproved BIT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+
+    -- Audit Fields
+    CreatedBy INT NOT NULL,
+    CreatedOn DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdatedBy INT NULL,
+    UpdatedOn DATETIME NULL
+);

@@ -37,6 +37,60 @@ async function uploadFileToServer({ file, superId, type, product }) {
 }
 
 
+router.post('/addVendorExpenses',validateToken,upload.single('Attachment'), async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    console.log('Data',Data)
+
+        // Uploaded file info
+    const file = req.file;
+    const fileName = file ? file.filename : null;        // stored file name
+    const originalName = file ? file.originalname : null; // original file name
+
+    console.log('File Name:', fileName);
+    console.log('Original Name:', originalName);
+    const superId = Data.SuperId;
+    const type = 'Vendor';
+    const product = 'payroll';
+
+
+    // 🔹 Call file upload function
+    if (file) {
+        await uploadFileToServer({
+          file,
+          superId,
+          type,
+          product
+        });
+      }
+    Data.Attachment = `${product}/${type}/${superId}/${originalName}`;
+
+    console.log('Data',Data)
+
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().addVendorExp);
+});
+
+router.get('/getVendorExpenses', validateToken, async (req, res, next) => {
+    const { SuperId } = req.query;
+
+    if (!SuperId ) {
+        return res.status(400).json({ message: 'SuperId  are required' });
+    }
+    const requestObj = {SuperId:SuperId,
+        SuperId:SuperId ,
+        fileuploaddomain:fileuploaddomain
+    };
+
+    const userObj = req.user;
+
+    return DbDataByOperationId(
+        requestObj,
+        userObj,
+        res,
+        OperationEnums().getVendorExp
+    );
+});
+
 
 router.post('/addRegExpenses',validateToken,upload.single('Attachment'), async (req, res, next) => {
     const Data = req.body;
