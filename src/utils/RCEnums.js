@@ -167,7 +167,10 @@ function OperationEnums() {
     addVendorExp:437,
     getVendorExp:438,
     ApproveVendorExpenses : 439,
-    deleteVendorExpenses : 440
+    deleteVendorExpenses : 440,
+    ctcGetdetails:441,
+    payslipsGet:426
+
 
   };
   return Operations;

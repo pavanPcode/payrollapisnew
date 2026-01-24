@@ -1803,3 +1803,69 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/payroll/getpayslips:
+ *   get:
+ *     summary: Get Payslips
+ *     description: Fetches payslips based on Branch, Department, Employee, and Pay Period filters.
+ *     tags:
+ *       - Payroll
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: BranchId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 4
+ *         description: Branch ID filter (0 for all branches).
+ *       - in: query
+ *         name: DeptId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 3
+ *         description: Department ID filter (0 for all departments).
+ *       - in: query
+ *         name: EmployeeId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 3699
+ *         description: Employee ID filter (0 for all employees).
+ *       - in: query
+ *         name: PayPeriodId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 163
+ *         description: Pay Period ID filter (0 for all periods).
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           default: 10051
+ *         description: Employee ID filter.
+ *     responses:
+ *       200:
+ *         description: Payslips retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *       400:
+ *         description: Missing or invalid parameters.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       401:
+ *         description: Unauthorized (Missing or invalid token).
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
