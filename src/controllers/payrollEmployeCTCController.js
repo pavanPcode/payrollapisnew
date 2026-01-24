@@ -26,10 +26,10 @@ router.get('/getctcreport', validateToken, async (req, res, next) => {
 });
 
 router.get('/GetctcdetailsForEmp', validateToken, async (req, res, next) => {
-    const { RegId } = req.query;
+    const { OrgSalaryId } = req.query;
 
     const requestObj = {
-        RegId: RegId 
+        OrgSalaryId: OrgSalaryId 
     };
 
     const userObj = req.user;

@@ -1881,11 +1881,11 @@
  *       - BearerAuth: []
  *     parameters:
  *       - in: query
- *         name: RegId
+ *         name: OrgSalaryId
  *         required: true
  *         schema:
  *           type: integer
- *         description: Registration ID of the employee
+ *         description: OrgSalaryId 
  *     responses:
  *       200:
  *         description: Successfully retrieved CTC details
