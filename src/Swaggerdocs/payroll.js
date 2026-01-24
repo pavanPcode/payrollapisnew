@@ -1869,3 +1869,42 @@
  *             schema:
  *               $ref: '#/components/schemas/ErrorResponse'
  */
+/**
+ * @swagger
+ * /payroll/EmployeCTC/GetctcdetailsForEmp:
+ *   get:
+ *     summary: Get CTC details for an employee
+ *     description: Fetches CTC (Cost to Company) details for a specific employee based on RegId. This API is protected and requires a valid authorization token.
+ *     tags:
+ *       - Payroll-EmployeCTC
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: RegId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Registration ID of the employee
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved CTC details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   description: Employee CTC details
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       400:
+ *         description: Bad request – Invalid RegId
+ *       500:
+ *         description: Internal server error
+ */
+
