@@ -1907,4 +1907,95 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/EmployeCTC/UpdateEmpCtc:
+ *   post:
+ *     summary: Update employee CTC
+ *     description: >
+ *       Updates employee CTC by closing the existing salary (OrgSalary),
+ *       creating a new salary record, and inserting salary structure details.
+ *       This API is protected and requires a valid authorization token.
+ *     tags:
+ *       - Payroll-EmployeCTC
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - SuperId
+ *               - RegId
+ *               - MonthlyCTC
+ *               - AnnualCTC
+ *               - CreatedBy
+ *               - EffectiveDate
+ *               - OrgSalaryId
+ *               - EmpCtc
+ *             properties:
+ *               SuperId:
+ *                 type: integer
+ *                 example: 10051
+ *               RegId:
+ *                 type: integer
+ *                 example: 3732
+ *               MonthlyCTC:
+ *                 type: number
+ *                 format: double
+ *                 example: 18000.00
+ *               AnnualCTC:
+ *                 type: number
+ *                 format: double
+ *                 example: 216000.00
+ *               CreatedBy:
+ *                 type: integer
+ *                 example: 6
+ *               EffectiveDate:
+ *                 type: string
+ *                 format: date
+ *                 example: "2026-01-26"
+ *               OrgSalaryId:
+ *                 type: integer
+ *                 description: Existing OrgSalaryId to be closed
+ *                 example: 613
+ *               EmpCtc:
+ *                 type: array
+ *                 description: Salary breakup details
+ *                 items:
+ *                   type: object
+ *                   required:
+ *                     - SalaryHeadId
+ *                     - Amount
+ *                   properties:
+ *                     SalaryHeadId:
+ *                       type: integer
+ *                       example: 21
+ *                     Amount:
+ *                       type: number
+ *                       format: double
+ *                       example: 9000.00
+ *     responses:
+ *       200:
+ *         description: Employee CTC updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Employee CTC updated successfully
+ *       400:
+ *         description: Bad request – Invalid input data
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
 

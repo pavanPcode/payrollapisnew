@@ -169,7 +169,8 @@ function OperationEnums() {
     ApproveVendorExpenses : 439,
     deleteVendorExpenses : 440,
     ctcGetdetails:441,
-    payslipsGet:426
+    payslipsGet:426,
+    UpdateEmpCtc:428,
 
 
   };

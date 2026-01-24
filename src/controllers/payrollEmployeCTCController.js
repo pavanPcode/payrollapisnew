@@ -5,6 +5,15 @@ const { OperationEnums } = require("../utils/RCEnums");
 const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
 
+
+router.post('/UpdateEmpCtc',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().UpdateEmpCtc);
+});
+
+
+
 router.get('/getctcreport', validateToken, async (req, res, next) => {
     const { EmployeeId,SuperId,BranchId,DeptId } = req.query;
 
