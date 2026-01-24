@@ -1998,4 +1998,63 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/EmployeCTC/GetEmpCtcHistory:
+ *   get:
+ *     summary: Get Employee CTC History
+ *     description: >
+ *       Fetches employee CTC salary history date-wise based on RegId.
+ *       This API returns salary head-wise changes (Old Amount → New Amount)
+ *       whenever the CTC is updated. Authorization token is required.
+ *     tags:
+ *       - Payroll-EmployeCTC
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: RegId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 3732
+ *         description: Employee Registration ID
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved employee CTC history
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       OrgSalaryId:
+ *                         type: integer
+ *                         example: 621
+ *                       SalaryHeadId:
+ *                         type: integer
+ *                         example: 21
+ *                       OldAmount:
+ *                         type: number
+ *                         example: 18000
+ *                       NewAmount:
+ *                         type: number
+ *                         example: 20000
+ *                       UpdatedOn:
+ *                         type: string
+ *                         example: "24-01-2026"
+ *       400:
+ *         description: Bad request – Invalid RegId
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
 

@@ -171,8 +171,7 @@ function OperationEnums() {
     ctcGetdetails:441,
     payslipsGet:426,
     UpdateEmpCtc:428,
-
-
+    GetEmpCtcHistory:429,
   };
   return Operations;
 }

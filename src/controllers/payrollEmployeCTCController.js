@@ -51,5 +51,21 @@ router.get('/GetctcdetailsForEmp', validateToken, async (req, res, next) => {
     );
 });
 
+router.get('/GetEmpCtcHistory', validateToken, async (req, res, next) => {
+    const { RegId } = req.query;
+
+    const requestObj = {
+        RegId: RegId 
+    };
+    const userObj = req.user;
+
+    return DbDataByOperationId(
+        requestObj,
+        userObj,
+        res,
+        OperationEnums().GetEmpCtcHistory
+    );
+});
+
 
 module.exports = router;
