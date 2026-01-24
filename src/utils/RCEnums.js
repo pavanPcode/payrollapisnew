@@ -172,6 +172,7 @@ function OperationEnums() {
     payslipsGet:426,
     UpdateEmpCtc:428,
     GetEmpCtcHistory:429,
+    addEmpCtc:442,
   };
   return Operations;
 }

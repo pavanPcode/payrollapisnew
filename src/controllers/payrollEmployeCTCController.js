@@ -6,6 +6,12 @@ const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
 
 
+router.post('/addEmpCtc',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().addEmpCtc);
+});
+
 router.post('/UpdateEmpCtc',validateToken, async (req, res, next) => {
     const Data = req.body;
     const userObj = req.user;
