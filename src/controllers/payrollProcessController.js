@@ -76,8 +76,6 @@ router.get('/PayrollProcessBranchWise', validateToken, async (req, res, next) =>
     );
 });
 
-
-
 router.get('/GetEmployeePayReport', validateToken, async (req, res, next) => {
     const {  PayPeriodId,BranchId  } = req.query;
 

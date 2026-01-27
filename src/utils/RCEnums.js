@@ -173,6 +173,7 @@ function OperationEnums() {
     UpdateEmpCtc:428,
     GetEmpCtcHistory:429,
     addEmpCtc:442,
+    getSalaryGroupMaster:443
   };
   return Operations;
 }

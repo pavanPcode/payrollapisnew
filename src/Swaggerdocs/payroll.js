@@ -2131,4 +2131,60 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ *  /payroll/EmployeCTC/getSalaryGroupMaster:
+ *   get:
+ *     summary: Get Salary Group Master
+ *     description: >
+ *       Fetches the list of salary group master records based on SuperId.
+ *       This API is protected and requires a valid authorization token.
+ *     tags:
+ *       - Payroll-EmployeCTC
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 10051
+ *         description: SuperId of the organization
+ *     responses:
+ *       200:
+ *         description: Salary group master data fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       Id:
+ *                         type: integer
+ *                         example: 1
+ *                       SuperId:
+ *                         type: integer
+ *                         example: 10051
+ *                       SalaryGroupName:
+ *                         type: string
+ *                         example: Monthly Staff
+ *                       IsActive:
+ *                         type: boolean
+ *                         example: true
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
 

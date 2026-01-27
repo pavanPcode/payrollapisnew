@@ -11,6 +11,5 @@ router.use('/EmployeCTC',require('../controllers/payrollEmployeCTCController'));
 router.use('/RegExpenses',require('../controllers/payrollRegExpenses'));
 router.use('/payslips',require('../controllers/payrollpayslips'));
 
-
 // Export the router to be used in the app1
 module.exports = router;

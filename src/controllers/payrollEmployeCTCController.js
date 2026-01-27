@@ -18,7 +18,22 @@ router.post('/UpdateEmpCtc',validateToken, async (req, res, next) => {
     return DbDataByOperationId(Data,userObj, res, OperationEnums().UpdateEmpCtc);
 });
 
+router.get('/getSalaryGroupMaster', validateToken, async (req, res, next) => {
+    const { SuperId } = req.query;
 
+    const requestObj = {
+        SuperId: SuperId 
+    };
+
+    const userObj = req.user;
+
+    return DbDataByOperationId(
+        requestObj,
+        userObj,
+        res,
+        OperationEnums().getSalaryGroupMaster
+    );
+});
 
 router.get('/getctcreport', validateToken, async (req, res, next) => {
     const { EmployeeId,SuperId,BranchId,DeptId } = req.query;
