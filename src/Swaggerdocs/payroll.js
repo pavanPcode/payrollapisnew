@@ -1396,6 +1396,7 @@
  *               - Notes
  *               - Amount
  *               - CreatedBy
+ *               - PaidDate
  *             properties:
  *               SuperId:
  *                 type: integer
@@ -1421,6 +1422,10 @@
  *                 type: string
  *                 format: binary
  *                 description: Upload expense bill or receipt
+ *               PaidDate:
+ *                 type: string
+ *                 format: date
+ *                 example: 2026-01-23
  *     responses:
  *       200:
  *         description: Expense added successfully
@@ -1563,6 +1568,7 @@
  *               - VendorName
  *               - Amount
  *               - CreatedBy
+ *               - PaidDate
  *             properties:
  *               SuperId:
  *                 type: integer
@@ -1596,6 +1602,10 @@
  *               CreatedBy:
  *                 type: integer
  *                 example: 27
+ *               PaidDate:
+ *                 type: string
+ *                 format: date
+ *                 example: 2026-01-23
  *     responses:
  *       200:
  *         description: Vendor expense added successfully
