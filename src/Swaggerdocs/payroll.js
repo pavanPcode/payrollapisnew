@@ -2216,7 +2216,7 @@
  *       This API supports optional branch and department filters.
  *       This API is protected and requires a valid authorization token.
  *     tags:
- *       - Payroll
+ *       - Payroll-EmployeCTC
  *     security:
  *       - BearerAuth: []
  *     parameters:
