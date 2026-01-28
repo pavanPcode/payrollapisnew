@@ -6,6 +6,19 @@ const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
 
 
+router.get('/getNewEmpListForctcadd',validateToken, async (req, res, next) => {
+    const { superid,BranchId,DeptId } = req.query;
+    // if (!regid) return res.status(400).json({ message: "Missing required parameter - regid" });
+    if (!superid)  return utilityhandleResponse(res, false, "Missing required parameter - superid", 400);
+    const requestObj = {superid:superid,
+        BranchId: BranchId || 0,
+        DeptId: DeptId || 0
+
+    };
+    const userObj = req.user;
+    return DbDataByOperationId(requestObj, userObj, res, OperationEnums().getNewEmpListForctcadd);
+});
+
 router.post('/addEmpCtc',validateToken, async (req, res, next) => {
     const Data = req.body;
     const userObj = req.user;

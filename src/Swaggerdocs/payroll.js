@@ -2206,3 +2206,79 @@
  *         description: Internal server error
  */
 
+/**
+ * @swagger
+ * /payroll/EmployeCTC/getNewEmpListForctcadd:
+ *   get:
+ *     summary: Get New Employee List for CTC Add
+ *     description: >
+ *       Fetches a list of employees who do not have CTC/salary records yet.
+ *       This API supports optional branch and department filters.
+ *       This API is protected and requires a valid authorization token.
+ *     tags:
+ *       - Payroll
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: superid
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 10051
+ *         description: Supervisor ID to fetch employees
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           example: 0
+ *         description: Branch ID (0 or not provided fetches all branches)
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           example: 0
+ *         description: Department ID (0 or not provided fetches all departments)
+ *     responses:
+ *       200:
+ *         description: New employee list fetched successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       RegId:
+ *                         type: integer
+ *                         example: 3732
+ *                       UserName:
+ *                         type: string
+ *                         example: John Doe
+ *                       Badge:
+ *                         type: string
+ *                         example: EMP102
+ *                       BranchId:
+ *                         type: integer
+ *                         example: 2
+ *                       DeptId:
+ *                         type: integer
+ *                         example: 1
+ *       400:
+ *         description: Missing or invalid parameter
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
