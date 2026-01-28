@@ -2118,7 +2118,7 @@
  *               SalaryGroupMasterId:
  *                 type: integer
  *                 example: 1
- *                 description: SalaryGroupMasterId
+ *                 description: SalaryGroupMasterId .
  *               CreatedBy:
  *                 type: integer
  *                 example: 6
