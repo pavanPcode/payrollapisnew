@@ -1466,11 +1466,16 @@
  *             required:
  *               - RegExpensesId
  *               - UpdatedBy
+ *               - ApprovedAmount
  *             properties:
  *               RegExpensesId:
  *                 type: integer
  *                 description: Expense record ID
  *                 example: 45
+ *               ApprovedAmount:
+ *                 type: integer
+ *                 description: ApprovedAmount
+ *                 example: 1000
  *               UpdatedBy:
  *                 type: integer
  *                 description: User who approves the expense
