@@ -62,3 +62,6 @@ CREATE TABLE PROD.VendorExpense
 ADDED PROD.SPSO_UpdateEmployeeCTC 
 ------------------------------------------
 altered view  [PROD].[V_GetAttendance]
+
+---------------
+ADDED [PROD].[SPSO_AddEmployeeSalary]
