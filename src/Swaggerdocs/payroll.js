@@ -1792,6 +1792,7 @@
  *             required:
  *               - Id
  *               - UpdatedBy
+ *               - ApprovedAmount
  *             properties:
  *               Id:
  *                 type: integer
@@ -1799,6 +1800,9 @@
  *               UpdatedBy:
  *                 type: integer
  *                 example: 12
+ *               ApprovedAmount:
+ *                 type: integer
+ *                 example: 1000
  *     responses:
  *       200:
  *         description: Vendor expense approved successfully
