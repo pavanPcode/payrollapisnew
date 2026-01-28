@@ -2098,7 +2098,7 @@
  *               - SuperId
  *               - RegId
  *               - MonthlyCTC
- *               - AnnualCTC
+ *               - SalaryGroupMasterId
  *               - CreatedBy
  *               - EffectiveDate
  *             properties:
@@ -2115,11 +2115,10 @@
  *                 format: double
  *                 example: 20000.00
  *                 description: Monthly CTC amount
- *               AnnualCTC:
- *                 type: number
- *                 format: double
- *                 example: 240000.00
- *                 description: Annual CTC amount
+ *               SalaryGroupMasterId:
+ *                 type: integer
+ *                 example: 1
+ *                 description: SalaryGroupMasterId
  *               CreatedBy:
  *                 type: integer
  *                 example: 6
