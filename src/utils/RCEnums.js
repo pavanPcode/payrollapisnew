@@ -175,6 +175,11 @@ function OperationEnums() {
     addEmpCtc:442,
     getSalaryGroupMaster:443,
     getNewEmpListForctcadd:444,
+    getpayrollReports:445,
+    getAdvancePaymentsReports:446,
+    getAdvancePaymentsHistory:447,
+    getpayslippr:2010,
+    getlast3payslipspr:2011
   };
   return Operations;
 }

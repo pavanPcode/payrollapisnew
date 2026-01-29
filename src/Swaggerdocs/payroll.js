@@ -2282,3 +2282,356 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /payroll/Reports/getpayrollReports:
+ *   get:
+ *     summary: Get Payroll Reports
+ *     description: Retrieves payroll reports based on supervisor, report type, pay period, department, branch, and employee filters.
+ *     tags:
+ *       - Payroll-Reports
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: superid
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10228
+ *         description: Supervisor ID
+ *
+ *       - in: query
+ *         name: reportiid
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 1
+ *         description: Payroll Report ID
+ *
+ *       - in: query
+ *         name: PayperiodId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         description: Pay Period ID
+ *
+ *       - in: query
+ *         name: RegId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         description: Employee Registration ID
+ *
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         description: Department ID
+ *
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         description: Branch ID
+ *
+ *     responses:
+ *       200:
+ *         description: Payroll report data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *
+ *       401:
+ *         description: Unauthorized (Invalid or missing token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/Reports/getAdvancePaymentsReports:
+ *   get:
+ *     summary: Get Advance Payments Reports
+ *     description: Retrieves employee advance payment reports based on supervisor, employee, and department filters.
+ *     tags:
+ *       - Payroll-Reports
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10051
+ *         description: Supervisor ID
+ *
+ *       - in: query
+ *         name: EmployeeId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 0
+ *         description: Employee (Registration) ID or 0 for all
+ *
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 0
+ *         description: Department ID or 0 for all
+ *
+ *     responses:
+ *       200:
+ *         description: Advance payments report retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *
+ *       401:
+ *         description: Unauthorized (Invalid or missing token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/AdvancePayments/getAdvancePaymentsHistory:
+ *   get:
+ *     summary: Get Advance Payment History
+ *     description: Retrieves the history/details of a specific advance payment using the advance payment ID.
+ *     tags:
+ *       - Payroll-AdvancePayments
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: AdvancePaymentId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 12
+ *         description: Advance Payment ID
+ *
+ *     responses:
+ *       200:
+ *         description: Advance payment history retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *
+ *       401:
+ *         description: Unauthorized (Invalid or missing token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/payslips/getpayslipsTest:
+ *   get:
+ *     summary: Get Payslips
+ *     description: Retrieves employee payslips based on supervisor, pay period, employee, branch, and department filters.
+ *     tags:
+ *       - payroll-Payslips
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 10228
+ *         description: Supervisor ID
+ *
+ *       - in: query
+ *         name: PayperiodId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 12
+ *         description: Pay Period ID
+ *
+ *       - in: query
+ *         name: RegId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3268
+ *         description: Employee Registration ID
+ *
+ *       - in: query
+ *         name: BranchId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 2
+ *         description: Branch ID
+ *
+ *       - in: query
+ *         name: DeptId
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 3
+ *         description: Department ID
+ *
+ *     responses:
+ *       200:
+ *         description: Payslips retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ArraySuccessResponse'
+ *
+ *       400:
+ *         description: Missing or invalid parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *
+ *       401:
+ *         description: Unauthorized (Invalid or missing token)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+/**
+ * @swagger
+ * /payroll/payslips/getlast3payslips:
+ *   get:
+ *     summary: Get last 3 payslips for an employee
+ *     description: |
+ *       Fetches the latest 3 pay periods for a given employee (RegId)
+ *       and returns consolidated payslip data with Earnings and Deductions
+ *       grouped based on SalaryType.
+ *     tags:
+ *       - payroll-Payslips
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Organization Super ID
+ *       - in: query
+ *         name: RegId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Employee Registration ID
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved last 3 payslips
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 ResultData:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       RegId:
+ *                         type: integer
+ *                         example: 46
+ *                       CardId:
+ *                         type: string
+ *                         example: "1002"
+ *                       UserName:
+ *                         type: string
+ *                         example: "ADIKE PRAKASH"
+ *                       Branch:
+ *                         type: string
+ *                         example: "Sri Sai Transporters"
+ *                       Department:
+ *                         type: string
+ *                         example: "ADMINSTRATION"
+ *                       Designation:
+ *                         type: string
+ *                         example: "MANAGING DIRECTOR"
+ *                       PayperiodId:
+ *                         type: integer
+ *                         example: 27
+ *                       PayPeriodName:
+ *                         type: string
+ *                         example: "February-2020"
+ *                       GrossPay:
+ *                         type: number
+ *                         example: 40000
+ *                       NetSalary:
+ *                         type: number
+ *                         example: 37600
+ *                       Earnings:
+ *                         type: array
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             SalaryHeadId:
+ *                               type: integer
+ *                               example: 21
+ *                             SalaryHead:
+ *                               type: string
+ *                               example: "Basic"
+ *                             Amount:
+ *                               type: number
+ *                               example: 20666.67
+ *                       Deductions:
+ *                         type: array
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             SalaryHeadId:
+ *                               type: integer
+ *                               example: 23
+ *                             SalaryHead:
+ *                               type: string
+ *                               example: "PF"
+ *                             Amount:
+ *                               type: number
+ *                               example: 2400
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */

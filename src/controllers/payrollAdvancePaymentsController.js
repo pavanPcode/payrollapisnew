@@ -41,4 +41,24 @@ router.get('/getSalaryAdvances', validateToken, async (req, res, next) => {
     );
 });
 
+router.get('/getAdvancePaymentsHistory', validateToken, async (req, res, next) => {
+    const { AdvancePaymentId } = req.query;
+
+    const requestObj = {
+        AdvancePaymentId: AdvancePaymentId 
+    };
+
+    const userObj = req.user;
+    console.log('requestObj',requestObj)
+    return DbDataByOperationId(
+        requestObj,
+        userObj,
+        res,
+        OperationEnums().getAdvancePaymentsHistory
+    );
+});
+
+
+
+
 module.exports = router;
