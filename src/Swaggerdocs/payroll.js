@@ -2459,7 +2459,7 @@
  */
 /**
  * @swagger
- * /payroll/payslips/getpayslipsTest:
+ * /payroll/payslips/getpayslips:
  *   get:
  *     summary: Get Payslips
  *     description: Retrieves employee payslips based on supervisor, pay period, employee, branch, and department filters.
