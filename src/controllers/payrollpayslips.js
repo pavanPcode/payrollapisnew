@@ -42,6 +42,8 @@ function formatPayslipData(rows) {
                 Leaves	:row.Leaves,
                 MonWeekOffs	:row.MonWeekOffs,
                 OtTime	:row.OtTime,
+                EarningsTotal :row.Earnings,
+                DeductionsTotal :row.Deductions,
                 Earnings: [],
                 Deductions: []
             };
@@ -62,7 +64,6 @@ function formatPayslipData(rows) {
 
     return Object.values(grouped);
 }
-
 
 router.get('/getpayslips', validateToken, async (req, res) => {
     const { SuperId, PayperiodId, RegId, BranchId,DeptId } = req.query;

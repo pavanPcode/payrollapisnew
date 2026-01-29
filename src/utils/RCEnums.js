@@ -179,7 +179,8 @@ function OperationEnums() {
     getAdvancePaymentsReports:446,
     getAdvancePaymentsHistory:447,
     getpayslippr:2010,
-    getlast3payslipspr:2011
+    getlast3payslipspr:2011,
+    getEmpPayssl:2012,
   };
   return Operations;
 }
