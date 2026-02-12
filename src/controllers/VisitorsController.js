@@ -4,8 +4,21 @@ const { DbDataByOperationId } = require("../dataAccess/DataRepo");
 const { OperationEnums } = require("../utils/RCEnums");
 const { validateToken } = require('../middlewares/authMiddleware');
 const { utilityhandleResponse } = require('../utils/responseHandler');
+const { Console } = require('winston/lib/winston/transports');
 
+router.post('/UpdatevisitorStatus',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
 
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().updatestatusVis);
+});
+
+router.post('/deletevisitor',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().deletevisitorzk);
+});
 
 router.post('/Addvisitor',validateToken, async (req, res, next) => {
     const Data = req.body;
@@ -28,17 +41,15 @@ router.post('/Addvisitor',validateToken, async (req, res, next) => {
 //     return DbDataByOperationId(Data,userObj, res, OperationEnums().deleteAdvancePayments);
 // });
 router.get('/getvisitorsList', validateToken, async (req, res, next) => {
-    const { SuperId, HostedBy, status, VisitType, StartDate, EndDate } = req.query;
+    const { SuperId, HostedBy, status, VisitType } = req.query;
 
     const requestObj = {
         SuperId: SuperId,
         HostedBy: HostedBy || 0,
         status: status || 0,
-        VisitType: VisitType || 0,
-        StartDate: StartDate || null,
-        EndDate: EndDate || null
+        VisitType: VisitType || 0
     };
-
+    console.log('requestObj',requestObj)
     const userObj = req.user;
 
     return DbDataByOperationId(
@@ -49,23 +60,6 @@ router.get('/getvisitorsList', validateToken, async (req, res, next) => {
     );
 });
 
-
-// router.get('/getAdvancePaymentsHistory', validateToken, async (req, res, next) => {
-//     const { AdvancePaymentId } = req.query;
-
-//     const requestObj = {
-//         AdvancePaymentId: AdvancePaymentId 
-//     };
-
-//     const userObj = req.user;
-//     console.log('requestObj',requestObj)
-//     return DbDataByOperationId(
-//         requestObj,
-//         userObj,
-//         res,
-//         OperationEnums().getAdvancePaymentsHistory
-//     );
-// });
 
 
 

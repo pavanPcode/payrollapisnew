@@ -2901,3 +2901,106 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /Visitor/Pass/UpdatevisitorStatus:
+ *   post:
+ *     summary: Update Visitor Appointment Status
+ *     description: |
+ *       Updates the status of an appointment.
+ *       Also updates UpdatedBy and UpdatedOn (IST Time).
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - AppointmentId
+ *               - Status
+ *               - UpdatedBy
+ *             properties:
+ *               AppointmentId:
+ *                 type: integer
+ *                 example: 10
+ *               Status:
+ *                 type: integer
+ *                 description: |
+ *                   0 = Pending  
+ *                   1 = Approved  
+ *                   2 = Rejected  
+ *                   3 = Completed
+ *                 example: 1
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 101
+ *     responses:
+ *       200:
+ *         description: Status updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Appointment status updated successfully"
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
+/**
+ * @swagger
+ * /Visitor/Pass/deletevisitor:
+ *   post:
+ *     summary: Delete Visitor Appointment (Soft Delete)
+ *     description: |
+ *       Performs a soft delete by setting IsActive = 0.
+ *       Also updates UpdatedBy and UpdatedOn (IST Time).
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - AppointmentId
+ *               - UpdatedBy
+ *             properties:
+ *               AppointmentId:
+ *                 type: integer
+ *                 example: 10
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 101
+ *     responses:
+ *       200:
+ *         description: Appointment deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Appointment deleted successfully"
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */

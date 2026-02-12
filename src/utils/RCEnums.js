@@ -183,6 +183,8 @@ function OperationEnums() {
     getEmpPayssl:2012,
     getvisitors:3000,
     addvisitorzk:3001,
+    deletevisitorzk:3003,
+    updatestatusVis:3002,
   };
   return Operations;
 }
