@@ -7,11 +7,20 @@ const { utilityhandleResponse } = require('../utils/responseHandler');
 
 
 
-// router.post('/AddVisitingPass',validateToken, async (req, res, next) => {
-//     const Data = req.body;
-//     const userObj = req.user;
-//     return DbDataByOperationId(Data,userObj, res, OperationEnums().AddAdvancePayments);
-// });
+router.post('/Addvisitor',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+
+    const generatePassCode = () => {
+        return Math.floor(10000000 + Math.random() * 90000000).toString();
+    };
+
+    Data.PassCode = generatePassCode();
+
+    console.log('Data',Data)
+
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().addvisitorzk);
+});
 
 // router.post('/deleteAdvancePayments',validateToken, async (req, res, next) => {
 //     const Data = req.body;

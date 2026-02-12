@@ -182,6 +182,7 @@ function OperationEnums() {
     getlast3payslipspr:2011,
     getEmpPayssl:2012,
     getvisitors:3000,
+    addvisitorzk:3001,
   };
   return Operations;
 }

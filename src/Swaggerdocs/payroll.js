@@ -2702,3 +2702,99 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /Visitor/Pass/Addvisitor:
+ *   post:
+ *     summary: Add Visitor and Create Appointment
+ *     description: |
+ *       Creates a new visitor in VisitorDetails table and automatically
+ *       creates an appointment entry in the Appointments table.
+ *       EndDateTime is calculated using Duration (in minutes) + StartDateTime.
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - SuperId
+ *               - VisitorName
+ *               - Mobile
+ *               - TransactionDate
+ *               - Duration
+ *               - StartDateTime
+ *               - VisitType
+ *               - HostedBy
+ *               - RequestedBy
+ *               - Purpose
+ *               - CreatedBy
+ *             properties:
+ *               SuperId:
+ *                 type: integer
+ *                 example: 1
+ *               VisitorName:
+ *                 type: string
+ *                 example: "Ramesh Kumar"
+ *               Mobile:
+ *                 type: string
+ *                 example: "9876543210"
+ *               Email:
+ *                 type: string
+ *                 example: "ramesh@gmail.com"
+ *               VehicleNo:
+ *                 type: string
+ *                 example: "TS09AB1234"
+ *               TransactionDate:
+ *                 type: string
+ *                 format: date
+ *                 example: "2026-02-12"
+ *               Duration:
+ *                 type: integer
+ *                 description: Duration in minutes
+ *                 example: 60
+ *               StartDateTime:
+ *                 type: string
+ *                 format: date-time
+ *                 example: "2026-02-12T10:00:00"
+ *               VisitType:
+ *                 type: string
+ *                 example: "Business Meeting"
+ *               HostedBy:
+ *                 type: integer
+ *                 example: 101
+ *               RequestedBy:
+ *                 type: integer
+ *                 example: 102
+ *               Purpose:
+ *                 type: string
+ *                 example: "Discussion regarding project requirements"
+ *               CreatedBy:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       200:
+ *         description: Visitor and Appointment created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Visitor and appointment created successfully"
+ *                 VisitorId:
+ *                   type: integer
+ *                   example: 25
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */

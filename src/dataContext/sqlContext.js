@@ -92,7 +92,7 @@ class DbContext {
         Object.entries(outputparam).forEach(([key, value]) => request.output(key, value));
       }
       const result = await request.execute(procName);
-      // console.log('sp_result',result)
+      console.log('sp_result',result)
       const returnObj = {
         resultdata:result.recordset || [],
         Status : result.output.Status,
