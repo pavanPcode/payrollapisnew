@@ -8,6 +8,8 @@ const logger = require('./src/utils/logger');
 const rcRoutes = require('./src/routes/rollcallRoutes');
 const mobileRoutes = require('./src/routes/appRoutes');
 const payrollRoutes = require('./src/routes/payrollRoutes');
+const VisitorRoutes = require('./src/routes/VisitorRoutes');
+
 const swaggerDocs = require("./swagger");
 
 swaggerDocs(app); // Load Swagger documentation..
@@ -28,8 +30,7 @@ app.get('/abc', (req, res) => {
 app.use("/portal",rcRoutes); // Routes related to Rollcall
 app.use("/app",mobileRoutes); // Routes related to Rollcall
 app.use("/payroll",payrollRoutes); // Routes related to Rollcall
-
-
+app.use("/Visitor",VisitorRoutes);
 // Auth Routes - Will work at the end1
 //app.use('/api/auth', authRoutes);
 

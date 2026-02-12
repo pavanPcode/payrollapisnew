@@ -2635,3 +2635,70 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /Visitor/Pass/getvisitorsList:
+ *   get:
+ *     summary: Get Visitors List
+ *     description: |
+ *       Fetches the list of visitors based on the given SuperId.
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Organization Super ID
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved visitors list
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 ResultData:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       ID:
+ *                         type: integer
+ *                         example: 1
+ *                       SuperId:
+ *                         type: integer
+ *                         example: 1
+ *                       Name:
+ *                         type: string
+ *                         example: "Ramesh Kumar"
+ *                       Mobile:
+ *                         type: string
+ *                         example: "9876543210"
+ *                       Email:
+ *                         type: string
+ *                         example: "ramesh@gmail.com"
+ *                       VehicleNo:
+ *                         type: string
+ *                         example: "TS09AB1234"
+ *                       IsPrimary:
+ *                         type: boolean
+ *                         example: true
+ *                       IsActive:
+ *                         type: boolean
+ *                         example: true
+ *                       CreatedOn:
+ *                         type: string
+ *                         format: date-time
+ *                         example: "2026-02-12T10:00:00Z"
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */

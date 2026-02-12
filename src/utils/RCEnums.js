@@ -181,6 +181,7 @@ function OperationEnums() {
     getpayslippr:2010,
     getlast3payslipspr:2011,
     getEmpPayssl:2012,
+    getvisitors:3000,
   };
   return Operations;
 }

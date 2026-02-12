@@ -17,13 +17,18 @@ router.get('/getAdvancePaymentsReports', validateToken, async (req, res, next) =
 
     const userObj = req.user;
 
-    return DbDataByOperationId(
-        requestObj,
-        userObj,
-        res,
-        OperationEnums().getAdvancePaymentsReports
-    );
+    // return DbDataByOperationId(
+    //     requestObj,
+    //     userObj,
+    //     res,
+    //     OperationEnums().getAdvancePaymentsReports
+    // );
+        lastResult = await DbDataByOperationId_header(requestObj, userObj, OperationEnums().getAdvancePaymentsReports);
+    // console.log('lastResult',lastResult)
+    return res.status(200).json(lastResult);
+
 });
+// });
 
 
 
