@@ -41,13 +41,15 @@ router.post('/Addvisitor',validateToken, async (req, res, next) => {
 //     return DbDataByOperationId(Data,userObj, res, OperationEnums().deleteAdvancePayments);
 // });
 router.get('/getvisitorsList', validateToken, async (req, res, next) => {
-    const { SuperId, HostedBy, status, VisitType } = req.query;
+    const { SuperId, HostedBy, status, VisitType,StartDate,EndDate } = req.query;
 
     const requestObj = {
         SuperId: SuperId,
         HostedBy: HostedBy || 0,
         status: status || 0,
-        VisitType: VisitType || 0
+        VisitType: VisitType || 0,
+        StartDate: StartDate || 0,
+        EndDate: EndDate || 0
     };
     console.log('requestObj',requestObj)
     const userObj = req.user;
