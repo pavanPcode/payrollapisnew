@@ -2762,8 +2762,8 @@
  *                 format: date-time
  *                 example: "2026-02-12T10:00:00"
  *               VisitType:
- *                 type: string
- *                 example: "Business Meeting"
+ *                 type: integer
+ *                 example: 1
  *               HostedBy:
  *                 type: integer
  *                 example: 101
