@@ -2639,6 +2639,109 @@
  * @swagger
  * /Visitor/Pass/getvisitorsList:
  *   get:
+ *     summary: Get Visitors List with Filters
+ *     description: |
+ *       Fetches the list of visitors based on SuperId.
+ *       Optional filters: HostedBy, Status, VisitType, StartDate, EndDate.
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: SuperId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Organization Super ID
+ *
+ *       - in: query
+ *         name: HostedBy
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: Filter by Hosted Employee ID
+ *
+ *       - in: query
+ *         name: status
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: Filter by Appointment Status (0 = All)
+ *
+ *       - in: query
+ *         name: VisitType
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *         description: Filter by Visit Type ID (0 = All)
+ *
+ *       - in: query
+ *         name: StartDate
+ *         required: false
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: Filter records from this date (yyyy-MM-dd)
+ *
+ *       - in: query
+ *         name: EndDate
+ *         required: false
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: Filter records up to this date (yyyy-MM-dd)
+ *
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved visitors list
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 ResultData:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       VisitorId:
+ *                         type: integer
+ *                         example: 1
+ *                       VisitorName:
+ *                         type: string
+ *                         example: "Ramesh Kumar"
+ *                       Mobile:
+ *                         type: string
+ *                         example: "9876543210"
+ *                       VisitType:
+ *                         type: integer
+ *                         example: 1
+ *                       HostedByName:
+ *                         type: string
+ *                         example: "John Doe"
+ *                       Status:
+ *                         type: integer
+ *                         example: 0
+ *                       TransactionDate:
+ *                         type: string
+ *                         format: date-time
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
+
+
+ * @swagger
+ * /Visitor/Pass/getvisitorsList:
+ *   get:
  *     summary: Get Visitors List
  *     description: |
  *       Fetches the list of visitors based on the given SuperId.

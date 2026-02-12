@@ -27,12 +27,16 @@ router.post('/Addvisitor',validateToken, async (req, res, next) => {
 //     const userObj = req.user;
 //     return DbDataByOperationId(Data,userObj, res, OperationEnums().deleteAdvancePayments);
 // });
-
 router.get('/getvisitorsList', validateToken, async (req, res, next) => {
-    const { SuperId } = req.query;
+    const { SuperId, HostedBy, status, VisitType, StartDate, EndDate } = req.query;
 
     const requestObj = {
-        SuperId: SuperId 
+        SuperId: SuperId,
+        HostedBy: HostedBy || 0,
+        status: status || 0,
+        VisitType: VisitType || 0,
+        StartDate: StartDate || null,
+        EndDate: EndDate || null
     };
 
     const userObj = req.user;
@@ -44,6 +48,7 @@ router.get('/getvisitorsList', validateToken, async (req, res, next) => {
         OperationEnums().getvisitors
     );
 });
+
 
 // router.get('/getAdvancePaymentsHistory', validateToken, async (req, res, next) => {
 //     const { AdvancePaymentId } = req.query;
