@@ -2836,6 +2836,7 @@
  *               - RequestedBy
  *               - Purpose
  *               - CreatedBy
+ *               - CompanyName
  *             properties:
  *               SuperId:
  *                 type: integer
@@ -2843,6 +2844,9 @@
  *               VisitorName:
  *                 type: string
  *                 example: "Ramesh Kumar"
+ *               CompanyName:
+ *                 type: string
+ *                 example: "pcode"
  *               Mobile:
  *                 type: string
  *                 example: "9876543210"
