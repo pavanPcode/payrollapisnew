@@ -185,6 +185,7 @@ function OperationEnums() {
     addvisitorzk:3001,
     deletevisitorzk:3003,
     updatestatusVis:3002,
+    editvisitorzk:3004,
   };
   return Operations;
 }

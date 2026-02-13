@@ -20,6 +20,14 @@ router.post('/deletevisitor',validateToken, async (req, res, next) => {
     return DbDataByOperationId(Data,userObj, res, OperationEnums().deletevisitorzk);
 });
 
+router.post('/editvisitor',validateToken, async (req, res, next) => {
+    const Data = req.body;
+    const userObj = req.user;
+
+    return DbDataByOperationId(Data,userObj, res, OperationEnums().editvisitorzk);
+});
+
+
 router.post('/Addvisitor',validateToken, async (req, res, next) => {
     const Data = req.body;
     const userObj = req.user;

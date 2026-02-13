@@ -3004,3 +3004,72 @@
  *       500:
  *         description: Internal server error
  */
+/**
+ * @swagger
+ * /Visitor/Pass/editvisitor:
+ *   post:
+ *     summary: Edit Visitor Appointment
+ *     description: |
+ *       Updates visitor appointment details including Duration, 
+ *       TransactionDate, StartDateTime, and Mobile number.
+ *       EndDateTime will be automatically calculated using Duration.
+ *       Also updates UpdatedBy and UpdatedOn (IST Time).
+ *     tags:
+ *       - ZkVisitors
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - AppointmentId
+ *               - Mobile
+ *               - Duration
+ *               - TransactionDate
+ *               - StartDateTime
+ *               - UpdatedBy
+ *             properties:
+ *               AppointmentId:
+ *                 type: integer
+ *                 example: 10
+ *               Mobile:
+ *                 type: string
+ *                 example: "9959463811"
+ *               Duration:
+ *                 type: integer
+ *                 example: 50
+ *               TransactionDate:
+ *                 type: string
+ *                 format: date
+ *                 example: "2026-02-12"
+ *               StartDateTime:
+ *                 type: string
+ *                 format: date-time
+ *                 example: "2026-02-12T10:00:00"
+ *               UpdatedBy:
+ *                 type: integer
+ *                 example: 101
+ *     responses:
+ *       200:
+ *         description: Appointment updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Appointment updated successfully"
+ *       400:
+ *         description: Bad Request – Invalid input data
+ *       401:
+ *         description: Unauthorized – Invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
