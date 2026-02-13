@@ -9,34 +9,35 @@ const upload = multer({ storage: multer.memoryStorage() });
 const axios = require('axios');
 const FormData = require('form-data');
 const fs = require('fs');
+const { filegetdomain,fileuploaddomain,uploadFileToServer } = require('../utils/Fileuploads');
 
-const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net'
-const filegetdomain = 'https://pcuploadfiles.azurewebsites.net/download?path='
+// const fileuploaddomain = 'https://pcuploadfiles.azurewebsites.net'
+// const filegetdomain = 'https://pcuploadfiles.azurewebsites.net/download?path='
 
-async function uploadFileToServer({ file, superId, type, product }) {
-  try {
-    const formData = new FormData();
+// async function uploadFileToServer({ file, superId, type, product }) {
+//   try {
+//     const formData = new FormData();
 
-    // ✅ Use buffer instead of path
-    formData.append('file', file.buffer, file.originalname);
-    formData.append('superid', superId);
-    formData.append('type', type);
-    formData.append('product', product);
+//     // ✅ Use buffer instead of path
+//     formData.append('file', file.buffer, file.originalname);
+//     formData.append('superid', superId);
+//     formData.append('type', type);
+//     formData.append('product', product);
 
-    const response = await axios.post(
-      `${fileuploaddomain}/upload`,
-      formData,
-      {
-        headers: formData.getHeaders(),
-      }
-    );
+//     const response = await axios.post(
+//       `${fileuploaddomain}/upload`,
+//       formData,
+//       {
+//         headers: formData.getHeaders(),
+//       }
+//     );
 
-    return response.data;
-  } catch (error) {
-    console.error('File upload failed:', error.message);
-    throw error;
-  }
-}
+//     return response.data;
+//   } catch (error) {
+//     console.error('File upload failed:', error.message);
+//     throw error;
+//   }
+// }
 
 
 router.post('/addVendorExpenses',validateToken,upload.single('Attachment'), async (req, res, next) => {
