@@ -29,6 +29,8 @@ const DbDataByOperationId = (reqObject,userObject, res, OperationId) => {
         OperationId: OperationId,
         JsonData: jsonData,
       }; // Add any parameters needed for the stored procedure
+
+    console.log('params',params)
     const outputparams = {
         ResultMessage: sql.NVarChar(sql.MAX),
         Status: sql.NVarChar(sql.MAX),

@@ -1,36 +1,42 @@
-const QRCode = require('qrcode');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+const QRCode = require('qrcode');
 
-async function generateQRCode(eightDigitNumber) {
+async function generateQRCode(passCode) {
     try {
-        // Validate 8-digit input
-        if (!/^\d{8}$/.test(eightDigitNumber)) {
-            throw new Error('Input must be exactly 8 digits');
+        if (!/^\d{8}$/.test(passCode)) {
+            throw new Error('PassCode must be exactly 8 digits');
         }
 
         const folderPath = path.join(__dirname, 'qrcodes');
 
-        // Create folder if not exists
         if (!fs.existsSync(folderPath)) {
-            fs.mkdirSync(folderPath);
+            fs.mkdirSync(folderPath, { recursive: true });
         }
 
-        const filePath = path.join(folderPath, `${eightDigitNumber}.png`);
+        const fileName = `${passCode}.png`;
+        console.log('fileName',fileName)
+        const filePath = path.join(folderPath, fileName);
 
-        // Generate QR and save
-        await QRCode.toFile(filePath, eightDigitNumber, {
+        await QRCode.toFile(filePath, passCode, {
             width: 300,
             margin: 2
         });
 
-        console.log('QR Code saved at:', filePath);
-        return filePath;
+        return {
+            fileName,
+            filePath
+        };
 
     } catch (error) {
-        console.error('Error generating QR:', error.message);
+        throw error;
     }
 }
 
+module.exports = {
+    generateQRCode,
+};
+
+
 // Example usage
-generateQRCode("12345678");
+// generateQRCode("12345678");
