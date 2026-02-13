@@ -1,4 +1,0 @@
-update ScreenOperations set SQLQuery = 'Select ''false'' AS IsManager' where Id = 120
-
-
-update ScreenOperations set SQLQuery = 'Select r.id RegId,r.*,0 as IsManager,'''' as EmailId,'''' as CurrentAddress from Prod.Registration r Where r.Id = @regid and r.IsActive = 1' where Id = 10
