@@ -29,7 +29,6 @@ router.post('/editvisitor',validateToken, async (req, res, next) => {
 });
 
 
-
 router.post('/Addvisitor', validateToken, async (req, res, next) => {
     try {
 
@@ -63,7 +62,7 @@ router.post('/Addvisitor', validateToken, async (req, res, next) => {
 
         // Data.Attachment = uploadResult.fileUrl;
         Data.Attachment = `${product}/${superId}/${type}/${qrData.fileName}`;
-        
+        Data.autoapproval = 1
 
         return DbDataByOperationId(
             Data,
